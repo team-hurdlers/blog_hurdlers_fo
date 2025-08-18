@@ -134,7 +134,7 @@ export default function BlogDetailPage({ detailParams }) {
               {/* 왼쪽 사이드바 - 실제 내용 */}
               <div
                 id="toc-scroll-container"
-                className="w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white fixed left-0 top-[70px] bottom-0 overflow-y-auto hidden lg:block pb-20"
+                className="w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white fixed left-0 top-0 bottom-0 overflow-y-auto hidden lg:block pb-20"
               >
                 <Link
                   href="/blog"
@@ -273,13 +273,13 @@ export default function BlogDetailPage({ detailParams }) {
               </div>
 
               {/* 오른쪽 사이드바 - 실제 내용 */}
-              <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-[70px] bottom-0 overflow-y-auto hidden lg:block">
+              <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-0 bottom-0 overflow-y-auto hidden lg:block">
                 <div className="p-5">
                   <h2 className="font-bold text-lg mb-4">SHARE ARTICLE</h2>
                   <ShareButtons title={blog.title} />
                   <div className="mt-8">
                     <Link
-                      href="/contact"
+                      href="https://v4-dev-hurdlers.framer.website/contact"
                       className="flex items-center justify-center px-[14px] py-[10px] bg-black hover:bg-gray-900 text-white text-sm rounded cursor-pointer"
                     >
                       <span>Contact Us</span>
