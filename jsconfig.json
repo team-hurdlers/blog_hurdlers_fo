@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/lib/utils": ["./src/lib/utils"],
+      "@/lib/fetchBlogs": ["./src/lib/fetchBlogs"],
+      "@/lib/*": ["./lib/*"],
+      "@/stores/*": ["src/stores/*"]
+    }
+  }
+}

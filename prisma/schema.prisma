@@ -1,0 +1,29 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model ScheduledFeed {
+  id           Int         @id @default(autoincrement())
+  feedName     String      @map("feed_name")
+  content      String?     @db.Text
+  image        String?     
+  tags         Json?
+  scheduleTime DateTime?   @map("schedule_time")
+  status       FeedStatus  @default(PENDING)
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+
+  @@map("scheduled_feeds")
+}
+
+enum FeedStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}

@@ -1,0 +1,384 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border-color;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Section title buttons - consistent styling */
+.section-title-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 6px;
+  width: 127px;
+  height: 44px;
+  background: #fcfcfc;
+  border: 1px solid #000000;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0d0d0d;
+}
+
+/* Feature buttons - consistent styling */
+.feature-button {
+  @apply px-4 py-2 border border-black rounded-full text-sm font-bold text-black whitespace-nowrap flex items-center;
+}
+
+/* Black feature button variant */
+.feature-button-black {
+  @apply bg-black text-white border-black;
+}
+
+/* CTA buttons - consistent styling */
+.cta-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 6px;
+  background: #fcfcfc;
+  border: 1px solid #000000;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Demo buttons - consistent styling */
+.demo-button {
+  @apply inline-block px-6 py-2 border border-gray-300 rounded-full text-sm font-bold text-black;
+}
+
+/* Black button variant - consistent styling */
+.black-button {
+  @apply inline-flex items-center px-6 py-3 bg-black text-white rounded-lg font-bold hover:bg-gray-800 transition-colors;
+}
+
+/* Define border-border-color for use in the base layer */
+@layer utilities {
+  .border-border-color {
+    border-color: hsl(var(--border));
+  }
+}
+
+/* 반응형 레이아웃을 위한 추가 스타일 */
+@media (max-width: 640px) {
+  .feature-button {
+    margin-bottom: 8px;
+  }
+}
+
+/* Header buttons - consistent sizing with different colors */
+.header-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+  width: 140px;
+  height: 44px;
+  border: 1px solid #000000;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  font-weight: 530;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+/* White button styling */
+.header-button.bg-white {
+  background: #fcfcfc;
+  color: #0d0d0d;
+}
+
+/* Black button styling */
+.header-button.bg-black {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Make sure icons are visible */
+.header-button svg {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* For mobile full-width buttons */
+@media (max-width: 768px) {
+  .header-button.w-full {
+    width: 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.sidebar-container {
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out,
+    min-width 0.3s ease-in-out;
+}
+
+body.sidebar-closed .sidebar-container {
+  transform: translateX(-100%);
+  width: 0;
+  min-width: 0;
+  border-right: none;
+}
+
+body.sidebar-closed .sidebar-toggle-button {
+  left: 0;
+}
+
+body.sidebar-closed button[aria-label='사이드바 열기'] {
+  left: 0;
+}
+
+body.sidebar-open button[aria-label='사이드바 닫기'] {
+  left: 400px;
+}
+
+body.sidebar-closed main > div:last-child {
+  margin-left: 0;
+}
+
+body.sidebar-open main > div:last-child {
+  margin-left: 0;
+}
+
+/* Blog Content Styles */
+.blog-content {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.blog-content h1 {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  font-size: 2.35rem !important;
+  margin: 1.5rem 0 !important;
+  font-weight: 500 !important;
+}
+
+.blog-content h2 {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  font-size: 1.9rem !important;
+  margin: 1.5rem 0 !important;
+  font-weight: 500 !important;
+}
+
+.blog-content h3 {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  font-size: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+}
+
+.blog-content p {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  margin: 1.25rem 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.blog-content img {
+  display: block !important;
+  margin: 2rem auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+}
+
+.blog-content ul,
+.blog-content ol {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.blog-content a {
+  color: #0066cc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-content blockquote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-left: 4px solid #333;
+  background-color: #f8f9fa;
+  font-style: italic;
+}
+
+/* Blog Table Styles */
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.blog-content th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.blog-content td {
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+
+/* Blog List Styles */
+.blog-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.blog-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.blog-content ul ul {
+  margin: 0.75rem 0 0.75rem 1rem;
+}
+
+.blog-content ul ul li::before {
+  width: 4px;
+  height: 4px;
+  border: 1px solid #333;
+  background-color: transparent;
+}
+
+.blog-content ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.blog-content ol li {
+  margin-bottom: 0.75rem;
+}
+
+.blog-content ol ol {
+  list-style: lower-alpha;
+  margin: 0.75rem 0 0.75rem 1rem;
+}
+
+.blog-content ol ol ol {
+  list-style: lower-roman;
+}

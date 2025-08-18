@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /blog/editor
+
+# Host
+Host: https://101.hurdlers.kr
+
+# Sitemaps
+Sitemap: https://101.hurdlers.kr/sitemap.xml
