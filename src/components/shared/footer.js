@@ -1,238 +1,266 @@
 'use client'
 
 import Link from 'next/link'
-import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react'
-import { useAlert } from '@/context/AlertContext'
-import Image from 'next/image'
 
 export default function Footer() {
-  const { showAlert } = useAlert()
-
-  // 준비 안된 메뉴 항목 리스트
-  const notReadyItems = ['terms']
-
-  // 링크 클릭 처리 - 준비 안된 메뉴 확인
-  const handleLinkClick = (e, href) => {
-    // href에서 첫 번째 '/'를 제거하여 경로만 추출
-    const path = href.startsWith('/') ? href.substring(1) : href
-
-    // 준비 안된 메뉴인지 확인
-    if (notReadyItems.some((item) => path.includes(item))) {
-      e.preventDefault()
-      showAlert('준비중입니다.')
-    }
-  }
-
   return (
-    <footer className="bg-black text-white py-16 border-t border-gray-200 relative overflow-hidden">
-      {/* Wave Background */}
-      <div
-        className="absolute inset-0 w-full h-full hidden md:block"
-        style={{ transform: 'translateY(-55px)' }}
-      >
-        <Image
-          src="/wave-background.png"
-          alt="Wave background"
-          fill
-          className="object-cover opacity-80 hidden md:block"
-          priority
-          quality={100}
-        />
-      </div>
-
-      {/* Main content */}
-      <div className="container mx-auto px-4 py-10 md:py-16 relative z-10 mb-0 md:mb-20">
-        {/* Top section with Korean text and buttons */}
-        <div className="text-center mb-20 md:mb-32">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl mb-8 md:mb-12 leading-relaxed">
-            성공적인 AX 조직으로의 전환으로
-            <br />
-            혁신적인 생산성을 경험하세요.
+    <footer className="bg-white py-5 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* CTA Section with background */}
+        <div className="relative text-center py-20 mb-16 overflow-hidden" style={{
+          backgroundColor: 'rgb(250, 250, 250)',
+          borderRadius: '15px',
+          opacity: 1
+        }}>
+          {/* Dot pattern overlay with vertical gradient */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.02) 100%)',
+              opacity: 1
+            }}
+          ></div>
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(140, 140, 140, 1) 1px, transparent 1px)',
+              backgroundSize: '15px 15px',
+              mask: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%)',
+              WebkitMask: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%)'
+            }}
+          ></div>
+          
+          {/* Content */}
+          <div className="relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            시작하지 않으면 아무일도 일어나지 않습니다.
           </h2>
-
-          <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-4">
-            <Link
-              href="/about/vision"
-              className="w-full md:w-auto border border-white rounded-xl px-4 md:px-6 py-3 md:py-3 text-base md:text-base flex items-center justify-center hover:bg-white hover:text-black transition-colors"
-              onClick={(e) => handleLinkClick(e, '/about/vision')}
-            >
-              Learn More <ArrowUpRight className="ml-2 h-4 w-4 flex-shrink-0" />
-            </Link>
-            <Link
-              href="/contact"
-              className="w-full md:w-auto border border-white rounded-xl px-4 md:px-6 py-3 md:py-3 text-base md:text-base flex items-center justify-center hover:bg-white hover:text-black transition-colors"
-            >
-              Contact Us <ArrowUpRight className="ml-2 h-4 w-4 flex-shrink-0" />
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-        <div className="mb-12 flex justify-start md:justify-end">
+          <p className="text-xl md:text-2xl text-gray-700 mb-8">
+            지금 바로 문의하세요.
+          </p>
           <Link
-            href="/"
-            className="font-bold text-xl md:text-2xl text-white whitespace-nowrap"
+            href="https://v4-dev-hurdlers.framer.website/contact"
+            className="inline-flex items-center px-8 py-4 bg-black text-white text-lg font-semibold rounded-lg hover:bg-gray-800 transition-colors"
           >
-            <Image
-              src="/new-logo-white.png"
-              alt="HURDLERS1"
-              width={200}
-              height={50}
-              priority
-            />
+            Contact Us
+            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Service Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Service</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/service/data-intelligence"
-                  className="text-white hover:underline"
-                  onClick={(e) =>
-                    handleLinkClick(e, '/service/data-intelligence')
-                  }
-                >
-                  AX Data Intelligence
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/service/marketing-intelligence"
-                  className="text-white hover:underline"
-                  onClick={(e) =>
-                    handleLinkClick(e, '/service/marketing-intelligence')
-                  }
-                >
-                  AX Marketing Intelligence
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/service/commerce-brain"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/service/commerce-brain')}
-                >
-                  AX Commerce Brain
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/service/video-creation"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/service/video-creation')}
-                >
-                  AX Video Creation
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resource Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Resource</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/demo"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/demo')}
-                >
-                  Demo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/blog')}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://news.hurdlers.kr/"
-                  className="text-white hover:underline"
-                >
-                  AI News
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/108-question"
-                  className="text-white hover:underline"
-                >
-                  108 Question
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* About Us Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-white">About Us</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/about/vision"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/about/vision')}
-                >
-                  Vision
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about/career"
-                  className="text-white hover:underline"
-                  onClick={(e) => handleLinkClick(e, '/about/career')}
-                >
-                  Career
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-white">Contact Info</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-white">
-                  12 Teheran-ro 70-gil, Gangnam-gu, Seoul, Republic of Korea
-                </span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 flex-shrink-0" />
-                <a
-                  href="tel:+821046705248"
-                  className="text-white hover:underline"
-                >
-                  +82 10-2783-5248
-                </a>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 flex-shrink-0" />
-                <a
-                  href="mailto:team@hurdlers.kr"
-                  className="text-white hover:underline"
-                >
-                  team@hurdlers.kr
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="mb-8">
+              <Link href="/" className="text-2xl font-bold text-gray-900">
+                Hurdlers
+              </Link>
+            </div>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p>사업자명 : (주) 허들러스</p>
+              <p>사업자 등록번호 : 660-46-00794</p>
+              <p>대표자명 : 유성민</p>
+              <p>문의 메일 : team@hurdlers.kr</p>
+            </div>
+            <div className="mt-8 text-sm text-gray-600">
+              <p>AI는 반복을 대신하고, 사람은 통찰과 창의에</p>
+              <p>집중할 수 있어야 한다고 믿습니다.</p>
+              <p className="mt-4">그것이 우리가 기술을 다루는 방식이며, 사람이</p>
+              <p>일하는 방식을 바꾸는 진짜 이유입니다.</p>
+            </div>
+          </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-100/30 text-center">
-          <p className="text-sm text-gray-100/50">
-            © {new Date().getFullYear()} HURDLERS101. All rights reserved.
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Services</h3>
+            <ul className="space-y-4 text-sm text-gray-600">
+              <li>
+                <Link 
+                  href="https://v4-dev-hurdlers.framer.website/ai/ax-consulting" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  AX 컨설팅
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="https://v4-dev-hurdlers.framer.website/ai/ai-data-analysis" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  AI 데이터 분석
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  AI 자동화 구축
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  AI 생성형 컨텐츠
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  GA4 구축
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  통합 대시보드 구축
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  마케팅 온보딩
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Additional Services */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">&nbsp;</h3>
+            <ul className="space-y-4 text-sm text-gray-600 mt-6">
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  데이터 파이프라인 구축
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  Web/App 개발
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  크로스 마케팅
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  검색 광고 자동화
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  SEO/GEO
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  마테크 유지보수
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources & About */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Resources</h3>
+            <ul className="space-y-4 text-sm text-gray-600">
+              <li>
+                <Link 
+                  href="/" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  블로그
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="https://demo.hurdlers.kr/" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  데모 체험
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  솔루션
+                </Link>
+              </li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-gray-900 mb-6 mt-12">About</h3>
+            <ul className="space-y-4 text-sm text-gray-600">
+              <li>
+                <Link 
+                  href="https://v4-dev-hurdlers.framer.website/company" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  회사 소개
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="https://v4-dev-hurdlers.framer.website/recruit" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  채용
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="https://v4-dev-hurdlers.framer.website/contact" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  문의하기
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="hover:text-gray-900 transition-colors"
+                >
+                  개인정보약관
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-16 pt-8 border-t border-gray-200">
+          <p className="text-sm text-gray-500">
+            Hurdlers © All rights reserved
           </p>
         </div>
       </div>

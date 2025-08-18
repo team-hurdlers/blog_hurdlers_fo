@@ -53,7 +53,7 @@ export default function BottomArticleList({
   return (
     <div className="relative">
       <div className="flex items-center justify-between mb-4 px-1">
-        <h2 className="text-sm font-bold uppercase tracking-wider">
+        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider">
           {category}
         </h2>
         <div className="flex items-center gap-4">

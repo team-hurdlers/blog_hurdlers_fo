@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
 import { getBlogCategoryJSONLD } from '@/utils/createJSONLD'
+import Header from '@/components/shared/header'
 
 // Helper function to format date to English format (e.g., JAN 15, 2024)
 function formatDateToEnglish(dateString) {
@@ -161,13 +162,14 @@ export default function BlogCategoryPage({ categoryParams }) {
 
   return (
     <>
+    <Header />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogCategoryStructuredData),
         }}
       />
-      <main className="min-h-screen relative py-10 md:py-24 px-4 sm:px-6 lg:px-20">
+      <main className="min-h-screen relative pt-32 pb-10 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-16">
             고객 경험을 한 차원 높이는 AX 마케팅
@@ -181,7 +183,7 @@ export default function BlogCategoryPage({ categoryParams }) {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-sm font-bold uppercase tracking-wider mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-4">
             {categoryName || 'Loading...'}
           </h2>
 

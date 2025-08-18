@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-// import Header from '@/components/shared/header'
+import Header from '@/components/shared/header'
 import Footer from '@/components/shared/footer'
 import TopArticle from '@/components/blog/list/TopArticle'
 import BestArticleList from '@/components/blog/list/BestArticleList'
@@ -26,12 +26,12 @@ export default function BlogListPage({ initialData }) {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogStructuredData) }}
       />
-      <main className="min-h-screen relative">
+      <main className="min-h-screen relative pt-24">
         <div className="py-12 md:py-28 px-4 sm:px-6 lg:px-20">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl md:text-7xl font-bold text-center mb-20 fadeInUp">
@@ -53,7 +53,7 @@ export default function BlogListPage({ initialData }) {
         </div>
         <div className="py-12 md:py-28 px-4 sm:px-6 lg:px-20">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-20">
+            <div className="space-y-20 text-2xl">
               {MAIN_CATEGORIES.map((categoryName, index) => {
                 const articles = otherCategories[categoryName] || []
                 // 카테고리에 글이 없어도 빈 섹션으로 표시 (또는 최소 1개 글이 있을 때만 표시)
