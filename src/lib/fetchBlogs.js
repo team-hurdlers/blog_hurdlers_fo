@@ -23,10 +23,8 @@ export async function fetchBlogsFromSupabase() {
   const top = processedBlogs.find((b) => b.section === 'top')
   const best = processedBlogs.filter((b) => b.section === 'best')
   
-  // top과 best에 사용된 글들을 제외하고 카테고리별로 그룹화
-  const otherBlogs = processedBlogs.filter((blog) => 
-    blog.section !== 'top' && blog.section !== 'best'
-  )
+  // 모든 글을 카테고리별로 그룹화 (top, best 상관없이 모든 글 포함)
+  const otherBlogs = processedBlogs
   
   const groupedByCategory = otherBlogs.reduce((acc, blog) => {
     const category = blog.category
