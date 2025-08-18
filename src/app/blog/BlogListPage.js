@@ -11,6 +11,9 @@ import { getBlogJSONLD } from '@/utils/createJSONLD'
 import { useBlogStore } from '@/stores/blogStore'
 
 
+// 메인페이지에 표시할 카테고리 순서
+const MAIN_CATEGORIES = ['Case Study', 'AI', 'Data', '허들러스 소식']
+
 export default function BlogListPage({ initialData }) {
   const setBlogData = useBlogStore((state) => state.setBlogData)
   const { blogs, topArticle, bestArticles, otherCategories } = useBlogStore()
@@ -51,8 +54,12 @@ export default function BlogListPage({ initialData }) {
         <div className="py-10 md:py-24 px-4 sm:px-6 lg:px-20">
           <div className="max-w-7xl mx-auto">
             <div className="space-y-16">
-              {Object.entries(otherCategories).map(
-                ([categoryName, articles]) => (
+              {MAIN_CATEGORIES.map((categoryName) => {
+                const articles = otherCategories[categoryName] || []
+                // 카테고리에 글이 없어도 빈 섹션으로 표시 (또는 최소 1개 글이 있을 때만 표시)
+                if (articles.length === 0) return null
+                
+                return (
                   <div key={categoryName}>
                     <BottomArticleList
                       key={categoryName}
@@ -61,8 +68,8 @@ export default function BlogListPage({ initialData }) {
                       posts={articles}
                     />
                   </div>
-                ),
-              )}
+                )
+              })}
             </div>
           </div>
         </div>
