@@ -191,29 +191,29 @@ export default function BlogCategoryPage({ categoryParams }) {
                 <Link
                   key={post.id}
                   href={`/blog/detail/${post.url}` || '#'}
-                  className="rounded-lg overflow-hidden shadow-xs hover:shadow-md transition bg-white"
+                  className="block h-full"
                 >
-                  <div className="relative">
-                    <Image
-                      src={post.thumbnail || '/placeholder.jpg'}
-                      alt={post.title}
-                      width={400}
-                      height={250}
-                      className="w-full aspect-[4/3] object-cover rounded-md"
-                    />
-                  </div>
-                  <div className="py-4 px-2">
-                    <div className="mb-3 ">
-                      <span className="inline-block px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-400">
-                        {post.category}
-                      </span>
+                  <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">
+                    <div className="relative">
+                      <Image
+                        src={post.thumbnail || '/placeholder.jpg'}
+                        alt={post.title}
+                        width={400}
+                        height={250}
+                        className="w-full aspect-[4/3] object-cover rounded-xl"
+                      />
                     </div>
-                    <h3 className="font-medium text-base mb-2 line-clamp-2 text-gray-800">
-                      {post.title}
-                    </h3>
-                    <p className="text-xs text-gray-400 ">
-                      {post.formattedDate}
-                    </p>
+                    <div className="py-2 px-4">
+                      <div className="mb-3">
+                        <span className="inline-block px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-400">
+                          {post.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-gray-400">{post.formattedDate}</p>
+                    </div>
                   </div>
                 </Link>
               ))}

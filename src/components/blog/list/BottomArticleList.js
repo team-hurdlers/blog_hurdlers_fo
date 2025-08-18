@@ -51,43 +51,37 @@ export default function BottomArticleList({
   }))
 
   return (
-    <div className="relative px-2">
-      <div className="flex items-center justify-between mb-8 px-2">
-        <h2 className="text-lg font-bold uppercase tracking-wider text-black">
+    <div className="relative">
+      <div className="flex items-center justify-between mb-4 px-1">
+        <h2 className="text-sm font-bold uppercase tracking-wider">
           {category}
         </h2>
         <div className="flex items-center gap-4">
-          <button 
-            onClick={() => instanceRef.current?.prev()}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-          >
-            <ChevronLeftIcon className="w-5 h-5 text-gray-600" />
+          <button onClick={() => instanceRef.current?.prev()}>
+            <ChevronLeftIcon className="w-5 h-5" />
           </button>
-          <button 
-            onClick={() => instanceRef.current?.next()}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-          >
-            <ChevronRightIcon className="w-5 h-5 text-gray-600" />
+          <button onClick={() => instanceRef.current?.next()}>
+            <ChevronRightIcon className="w-5 h-5" />
           </button>
         </div>
       </div>
 
       <div ref={sliderRef} className="keen-slider">
         {formattedPosts.map((post) => (
-          <div key={post.id} className="keen-slider__slide p-2">
-            <div className="group card-hover h-full rounded-2xl">
+          <div key={post.id} className="keen-slider__slide p-1">
+            <article className="group card-hover shadow-lg transition duration-300 h-full rounded-2xl">
               <Link
                 href={'/blog/detail/' + post.url || '#'}
                 className="block h-full"
               >
-                <article className="rounded-2xl shadow-sm rounded-shadow transition bg-white h-full">
-                  <div className="relative overflow-hidden rounded-t-2xl">
+                <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">
+                  <div className="relative">
                     <Image
                       src={post.thumbnail || '/placeholder.jpg'}
                       alt={post.title}
                       width={400}
                       height={250}
-                      className="w-full aspect-[4/3] object-cover"
+                      className="w-full aspect-[4/3] object-cover rounded-xl"
                     />
                   </div>
                   <div className="py-2 px-4">
@@ -101,20 +95,20 @@ export default function BottomArticleList({
                     </h3>
                     <p className="text-xs text-gray-400">{post.formattedDate}</p>
                   </div>
-                </article>
+                </div>
               </Link>
-            </div>
+            </article>
           </div>
         ))}
       </div>
 
-      <div className="text-right mt-6 pr-2">
+      <div className="text-right mt-6 pr-1">
         <Link
           href={`/blog/${categoryUrl}`}
-          className="group inline-flex items-center text-sm font-medium text-black hover:text-gray-700 transition-all duration-300"
+          className="inline-flex items-center text-sm font-semibold text-black hover:translate-x-1 transition-transform duration-300"
         >
-          <span className="mr-2">See all</span>
-          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          See all
+          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Link>
