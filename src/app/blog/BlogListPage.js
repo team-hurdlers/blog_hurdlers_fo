@@ -10,13 +10,6 @@ import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
 import { getBlogJSONLD } from '@/utils/createJSONLD'
 import { useBlogStore } from '@/stores/blogStore'
 
-const CATEGORY_URL_MAP = {
-  '허들러스101 서비스 활용 노하우': 'services',
-  'AI Insight': 'ai',
-  'AI 성공사례': 'case-studies',
-  '허들러스101 소식': 'news',
-  '팀 허들러스101': 'team',
-}
 
 export default function BlogListPage({ initialData }) {
   const setBlogData = useBlogStore((state) => state.setBlogData)
@@ -64,7 +57,7 @@ export default function BlogListPage({ initialData }) {
                     <BottomArticleList
                       key={categoryName}
                       category={categoryName}
-                      categoryUrl={CATEGORY_URL_MAP[categoryName]}
+                      categoryUrl={articles[0]?.categoryUrl || ''}
                       posts={articles}
                     />
                   </div>

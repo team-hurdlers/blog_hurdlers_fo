@@ -17,6 +17,7 @@ export async function fetchBlogsFromSupabase() {
     ...blog,
     author: blog.blog_authors?.[0]?.author?.name || 'Unknown Author',
     category: blog.blog_categories?.[0]?.category?.name || 'Uncategorized',
+    categoryUrl: blog.blog_categories?.[0]?.category?.url || '',
   }))
 
   const top = processedBlogs.find((b) => b.section === 'top')
