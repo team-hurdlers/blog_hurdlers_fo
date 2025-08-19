@@ -13,11 +13,21 @@ import {
 export default function FloatingButtons({ position = 'default', showCategoryOnDesktop = true }) {
   const [showScrollToTop, setShowScrollToTop] = useState(false)
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
+  const [isFooterVisible, setIsFooterVisible] = useState(false)
 
-  // 스크롤 투 탑 기능
+  // 스크롤 투 탑 기능 및 푸터 감지
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollToTop(window.scrollY > 400)
+      
+      // 푸터 감지
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        // 푸터가 화면에 보이기 시작하면 true
+        setIsFooterVisible(footerRect.top < windowHeight)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -38,10 +48,10 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
   // 위치에 따른 클래스 결정
   const getPositionClasses = () => {
     if (position === 'sidebar') {
-      // BlogDetailPage - 사이드바 옆
+      // BlogDetailPage - 사이드바 옆 (푸터에서는 오른쪽으로 이동)
       return {
         category: 'lg:left-[240px] left-6',
-        scrollTop: 'lg:right-[300px] right-6',
+        scrollTop: isFooterVisible ? 'right-6' : 'lg:right-[300px] right-6',
         menu: 'lg:left-[240px] left-6'
       }
     }
