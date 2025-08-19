@@ -187,7 +187,7 @@ export default function BlogDetailPage({ detailParams }) {
                   <div className="flex items-center justify-between mb-8 sm:mb-10">
                     <div className="text-sm font-medium text-black">
                       <span className="text-gray-500 text-xs">Author</span>{' '}
-                      <span>{author}</span>
+                      <span className="font-bold">{author}</span>
                     </div>
                     <div className="text-sm text-black">
                       <span className="text-gray-500 text-xs">Date</span>{' '}
@@ -317,6 +317,7 @@ export default function BlogDetailPage({ detailParams }) {
                         <Newspaper size={16} />
                         <span>허들러스 소식</span>
                       </Link>
+
                     </div>
                   </div>
 
@@ -331,7 +332,7 @@ export default function BlogDetailPage({ detailParams }) {
                       <button
                         onClick={() => {
                           const categoryName = blog.blog_categories?.[0]?.category?.name || ''
-                          const shareText = `Hurdlers${window.location.href}`
+                          const shareText = `${window.location.href}`
                           navigator.clipboard.writeText(shareText)
                           alert('링크가 복사되었습니다!')
                         }}
