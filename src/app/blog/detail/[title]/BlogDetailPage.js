@@ -13,6 +13,13 @@ import { useBlogStore } from '@/stores/blogStore'
 import supabaseClient from '@/lib/supabase-client'
 import { useEffect, useState } from 'react'
 import BlogHeader from '@/components/shared/blog-header'
+import {
+  Menu,
+  Smartphone,
+  Search,
+  CheckSquare,
+  Newspaper,
+} from 'lucide-react'
 
 export default function BlogDetailPage({ detailParams }) {
   let title = ''
@@ -277,8 +284,119 @@ export default function BlogDetailPage({ detailParams }) {
               {/* 오른쪽 사이드바 - 실제 내용 */}
               <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-[69px] bottom-0 overflow-y-auto hidden lg:block">
                 <div className="p-5">
-                  <h2 className="font-bold text-lg mb-4">SHARE ARTICLE</h2>
-                  <ShareButtons title={blog.title} />
+                  {/* Categories Section - 위로 이동 */}
+                  <div>
+                    <h2 className="font-bold text-lg mb-4">CATEGORIES</h2>
+                    <div className="space-y-2">
+                      <Link
+                        href="/blog"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <Menu size={16} />
+                        <span>전체보기</span>
+                      </Link>
+                      <Link
+                        href="/blog/case-studies"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <Smartphone size={16} />
+                        <span>Case Study</span>
+                      </Link>
+                      <Link
+                        href="/blog/ai"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <Search size={16} />
+                        <span>AI</span>
+                      </Link>
+                      <Link
+                        href="/blog/data"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <CheckSquare size={16} />
+                        <span>Data</span>
+                      </Link>
+                      <Link
+                        href="/blog/news"
+                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <Newspaper size={16} />
+                        <span>허들러스 소식</span>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Share Section - 아래로 이동하고 버튼 형태로 변경 */}
+                  <div className="mt-8">
+                    <h2 className="font-bold text-lg mb-4">SHARE ARTICLE</h2>
+                    {/* 기존 ShareButtons 주석 처리 */}
+                    {/* <ShareButtons title={blog.title} /> */}
+                    
+                    {/* 새로운 버튼 형태 공유 */}
+                    <div className="flex flex-col space-y-2">
+                      <button
+                        onClick={() => {
+                          const shareText = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n${window.location.href}\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\nhurdlers.kr`
+                          navigator.clipboard.writeText(shareText)
+                          alert('공유 텍스트가 복사되었습니다!')
+                        }}
+                        className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <span>링크 복사</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          const text = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n${window.location.href}\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\n\nhurdlers.kr`
+                          const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+                          window.open(twitterUrl, '_blank')
+                        }}
+                        className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                        <span>트위터 공유</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          const title = `${blog.title} - Hurdlers 블로그`
+                          const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | #Hurdlers #허들러스 #AX마케팅 #고객경험`
+                          const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(title + ' | ' + summary)}`
+                          window.open(facebookUrl, '_blank')
+                        }}
+                        className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        <span>페이스북 공유</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          const title = `${blog.title} - Hurdlers 블로그에서 발행`
+                          const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | hurdlers.kr | #Hurdlers #허들러스 #AX마케팅 #고객경험`
+                          const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`
+                          window.open(linkedinUrl, '_blank')
+                        }}
+                        className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>링크드인 공유</span>
+                      </button>
+                    </div>
+                  </div>
+
                   <div className="mt-8">
                     <Link
                       href="https://v4-dev-hurdlers.framer.website/contact"
