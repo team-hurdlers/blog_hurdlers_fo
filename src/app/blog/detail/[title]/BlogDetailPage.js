@@ -347,7 +347,7 @@ export default function BlogDetailPage({ detailParams }) {
                       
                       <button
                         onClick={() => {
-                          const text = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n${window.location.href}\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\n\nhurdlers.kr`
+                          const text = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\n\nhurdlers.kr\n\n${window.location.href}`
                           const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
                           window.open(twitterUrl, '_blank')
                         }}
