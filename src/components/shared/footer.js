@@ -136,7 +136,7 @@ export default function Footer() {
 
           {/* Additional Services */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">&nbsp;</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">Services</h3>
             <ul className="space-y-4 text-sm text-gray-600 mt-6">
               <li>
                 <Link 

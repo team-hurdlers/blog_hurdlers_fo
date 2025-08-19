@@ -12,6 +12,7 @@ import RelatedBlogs from '@/components/blog/detail/RelatedBlogs'
 import { useBlogStore } from '@/stores/blogStore'
 import supabaseClient from '@/lib/supabase-client'
 import { useEffect, useState } from 'react'
+import BlogHeader from '@/components/shared/blog-header'
 
 export default function BlogDetailPage({ detailParams }) {
   let title = ''
@@ -113,7 +114,7 @@ export default function BlogDetailPage({ detailParams }) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-95 z-50">
         <div className="w-8 h-8 border-2 border-gray-200 border-t-black rounded-full animate-spin"></div>
-      </div>
+      </div> 
     )
   return (
     <>
@@ -123,6 +124,7 @@ export default function BlogDetailPage({ detailParams }) {
       />
       {/* <Header /> */}
       <div className="flex flex-col min-h-screen">
+      <BlogHeader />
         <main className="flex-grow relative px-0 sm:px-6 lg:px-0">
           <div className="w-full bg-white text-black">
             <div className="flex flex-col lg:flex-row w-full h-full bg-white relative">
@@ -134,7 +136,7 @@ export default function BlogDetailPage({ detailParams }) {
               {/* 왼쪽 사이드바 - 실제 내용 */}
               <div
                 id="toc-scroll-container"
-                className="w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white fixed left-0 top-0 bottom-0 overflow-y-auto hidden lg:block pb-20"
+                className="w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white fixed left-0 top-[69px] bottom-0 overflow-y-auto hidden lg:block pb-20"
               >
                 <Link
                   href="/blog"
@@ -167,7 +169,7 @@ export default function BlogDetailPage({ detailParams }) {
 
               {/* 본문 콘텐츠 - 중앙 정렬 */}
               <div className="w-full lg:w-[calc(100%-500px)] max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 flex-grow flex justify-center flex-col items-center">
-                <div className="max-w-3xl w-full py-8 sm:py-12">
+                <div className="max-w-3xl w-full pb-8 sm:pb-12 pt-[100px]">
                   {/* 제목과 공유 아이콘 */}
                   <div className="flex max-md:flex-col items-start justify-between gap-4 mb-6">
                     <h1 className="text-4xl sm:text-5xl font-medium">
@@ -273,7 +275,7 @@ export default function BlogDetailPage({ detailParams }) {
               </div>
 
               {/* 오른쪽 사이드바 - 실제 내용 */}
-              <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-0 bottom-0 overflow-y-auto hidden lg:block">
+              <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-[69px] bottom-0 overflow-y-auto hidden lg:block">
                 <div className="p-5">
                   <h2 className="font-bold text-lg mb-4">SHARE ARTICLE</h2>
                   <ShareButtons title={blog.title} />
