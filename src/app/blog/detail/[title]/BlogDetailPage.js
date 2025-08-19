@@ -363,7 +363,8 @@ export default function BlogDetailPage({ detailParams }) {
                         onClick={() => {
                           const title = `${blog.title} - Hurdlers 블로그`
                           const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | #Hurdlers #허들러스 #AX마케팅 #고객경험`
-                          const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(title + ' | ' + summary)}`
+                          const fullText = '${title}\n\n${summary}'
+                          const facebookUrl = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(fullText)}&u=${encodeURIComponent(window.location.href)}`
                           window.open(facebookUrl, '_blank')
                         }}
                         className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
@@ -378,7 +379,8 @@ export default function BlogDetailPage({ detailParams }) {
                         onClick={() => {
                           const title = `${blog.title} - Hurdlers 블로그에서 발행`
                           const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | hurdlers.kr | #Hurdlers #허들러스 #AX마케팅 #고객경험`
-                          const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`
+                          const fullText = `${title}\n\n${summary}`
+                          const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?title=${encodeURIComponent(title)}&summary=${encodeURIComponent(fullText)}&url=${encodeURIComponent(window.location.href)}`
                           window.open(linkedinUrl, '_blank')
                         }}
                         className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
