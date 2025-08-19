@@ -222,10 +222,34 @@ export default function BlogDetailPage({ detailParams }) {
                     dangerouslySetInnerHTML={{ __html: blog.body }}
                   />
                   
-                  <style jsx>{`
+                  <style jsx global>{`
+                    .prose h1,
+                    .prose h2,
+                    .prose h3,
+                    .prose h4,
+                    .prose h5,
+                    .prose h6,
+                    .blog-content h1,
+                    .blog-content h2,
+                    .blog-content h3,
+                    .blog-content h4,
+                    .blog-content h5,
+                    .blog-content h6 {
+                      font-weight: normal !important;
+                    }
+                    .prose h1 strong,
+                    .prose h2 strong,
+                    .prose h3 strong,
+                    .prose h4 strong,
+                    .prose h5 strong,
+                    .prose h6 strong,
                     .blog-content h1 strong,
-                    .blog-content h2 strong {
-                      font-weight: inherit;
+                    .blog-content h2 strong,
+                    .blog-content h3 strong,
+                    .blog-content h4 strong,
+                    .blog-content h5 strong,
+                    .blog-content h6 strong {
+                      font-weight: normal !important;
                     }
                   `}</style>
 
