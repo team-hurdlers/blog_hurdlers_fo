@@ -359,14 +359,20 @@ export default function BlogDetailPage({ detailParams }) {
                         <span>트위터 공유</span>
                       </button>
                       
-                      <button
+                      {/* <button
                         onClick={() => {
                           const title = `${blog.title} - Hurdlers 블로그`
                           const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | #Hurdlers #허들러스 #AX마케팅 #고객경험`
-                          const fullText = '${title}\n\n${summary}'
+                          const fullText = `${title}\n\n${summary}`
                           const facebookUrl = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(fullText)}&u=${encodeURIComponent(window.location.href)}`
                           window.open(facebookUrl, '_blank')
-                        }}
+                        }} */}
+                        <button
+                          onClick={() => {
+                            const text = `${blog.title} - Hurdlers 블로그\n\n고객 경험을 한 차원 높이는 AX 마케팅\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험`
+                            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`
+                            window.open(facebookUrl, '_blank')
+                          }}
                         className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
