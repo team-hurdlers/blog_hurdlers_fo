@@ -1,6 +1,7 @@
 // components/BestArticleList.js
 import Image from 'next/image'
 import Link from 'next/link'
+import { Clock } from 'lucide-react'
 
 function formatReadingTime(timeInMinutes) {
   if (!timeInMinutes) return '5 min read'
@@ -42,7 +43,10 @@ export default function BestArticleList({ articles }) {
                       <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
                         {category}
                       </span>
-                      <span className="text-xs text-gray-400">{readingTime}</span>
+                      <span className="text-xs text-gray-400 flex items-center gap-1">
+                        <Clock size={12} />
+                        {readingTime}
+                      </span>
                     </div>
                   </div>
                 </div>

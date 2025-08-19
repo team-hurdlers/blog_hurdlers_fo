@@ -6,6 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { Clock } from 'lucide-react'
 
 function formatReadingTime(timeInMinutes) {
   if (!timeInMinutes) return '5 min read'
@@ -76,7 +77,10 @@ export default function BottomArticleList({
                     <h3 className="text-xl font-bold mb-2 text-gray-800">
                       {post.title}
                     </h3>
-                    <p className="text-xs text-gray-400">{post.readingTime}</p>
+                    <p className="text-xs text-gray-400 flex items-center gap-1">
+                      <Clock size={12} />
+                      {post.readingTime}
+                    </p>
                   </div>
                 </div>
               </Link>

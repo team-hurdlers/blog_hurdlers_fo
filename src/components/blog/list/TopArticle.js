@@ -1,6 +1,7 @@
 // components/TopArticle.js
 import Image from 'next/image'
 import Link from 'next/link'
+import { Clock } from 'lucide-react'
 
 function formatReadingTime(timeInMinutes) {
   if (!timeInMinutes) return '5 min read'
@@ -37,7 +38,10 @@ export default function TopArticle({ article }) {
             {article.title}
           </h2>
           <p className="text-xs text-gray-400 my-4 "> {article.description}</p>
-          <p className="text-xs text-gray-400">{readingTime}</p>
+          <p className="text-xs text-gray-400 flex items-center gap-1">
+            <Clock size={12} />
+            {readingTime}
+          </p>
         </div>
       </div>
     </Link>

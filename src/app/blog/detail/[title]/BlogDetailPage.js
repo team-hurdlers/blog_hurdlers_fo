@@ -221,6 +221,13 @@ export default function BlogDetailPage({ detailParams }) {
                     className="blog-content prose prose-lg max-w-none"
                     dangerouslySetInnerHTML={{ __html: blog.body }}
                   />
+                  
+                  <style jsx>{`
+                    .blog-content h1 strong,
+                    .blog-content h2 strong {
+                      font-weight: inherit;
+                    }
+                  `}</style>
 
                   {/* 태그 */}
                   {tags.length > 0 && (

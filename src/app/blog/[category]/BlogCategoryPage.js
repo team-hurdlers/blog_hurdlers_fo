@@ -7,6 +7,7 @@ import Footer from '@/components/shared/footer'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Clock } from 'lucide-react'
 import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
 import { getBlogCategoryJSONLD } from '@/utils/createJSONLD'
 import Header from '@/components/shared/header'
@@ -204,7 +205,10 @@ export default function BlogCategoryPage({ categoryParams }) {
                       <h3 className="text-xl font-bold mb-2 text-gray-800">
                         {post.title}
                       </h3>
-                      <p className="text-xs text-gray-400">{post.readingTime}</p>
+                      <p className="text-xs text-gray-400 flex items-center gap-1">
+                        <Clock size={12} />
+                        {post.readingTime}
+                      </p>
                     </div>
                   </div>
                 </Link>
