@@ -2,36 +2,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-// Helper function to format date to English format (e.g., JAN 15, 2024)
-function formatDateToEnglish(dateString) {
-  const date = new Date(dateString)
-  const months = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
-  ]
-  const month = months[date.getMonth()]
-  const day = date.getDate()
-  const year = date.getFullYear()
-  return `${month} ${day}, ${year}`
+function formatReadingTime(timeInMinutes) {
+  if (!timeInMinutes) return '5 min read'
+  return `${timeInMinutes} min read`
 }
 
 export default function TopArticle({ article }) {
   if (!article) return null
 
-  // Get article category
+  // Get article category and reading time
   const category =
     article.blog_categories?.[0]?.category?.name || 'Uncategorized'
-  const formattedDate = formatDateToEnglish(article.published_at)
+  const readingTime = formatReadingTime(article.time)
 
   return (
     <Link href={'/blog/detail/' + article.url || '#'}>
@@ -47,7 +29,7 @@ export default function TopArticle({ article }) {
         </div>
         <div className="py-2 px-4">
           <div className="mb-3">
-            <span className="inline-block px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-400">
+            <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
               {category}
             </span>
           </div>
@@ -55,7 +37,7 @@ export default function TopArticle({ article }) {
             {article.title}
           </h2>
           <p className="text-xs text-gray-400 my-4 "> {article.description}</p>
-          <p className="text-xs text-gray-400">{formattedDate}</p>
+          <p className="text-xs text-gray-400">{readingTime}</p>
         </div>
       </div>
     </Link>

@@ -11,27 +11,9 @@ import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
 import { getBlogCategoryJSONLD } from '@/utils/createJSONLD'
 import Header from '@/components/shared/header'
 
-// Helper function to format date to English format (e.g., JAN 15, 2024)
-function formatDateToEnglish(dateString) {
-  const date = new Date(dateString)
-  const months = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
-  ]
-  const month = months[date.getMonth()]
-  const day = date.getDate()
-  const year = date.getFullYear()
-  return `${month} ${day}, ${year}`
+function formatReadingTime(timeInMinutes) {
+  if (!timeInMinutes) return '3 min read'
+  return `${timeInMinutes} min read`
 }
 
 export default function BlogCategoryPage({ categoryParams }) {
@@ -77,6 +59,7 @@ export default function BlogCategoryPage({ categoryParams }) {
           published_at,
           thumbnail,
           url,
+          time,
           blog_authors(author(name)),
           blog_categories(category(name, url))
         `,
@@ -91,7 +74,7 @@ export default function BlogCategoryPage({ categoryParams }) {
             author: blog.blog_authors?.[0]?.author?.name || 'Unknown Author',
             category: blog.blog_categories?.[0]?.category?.name || 'Uncategorized',
             categoryUrl: blog.blog_categories?.[0]?.category?.url,
-            formattedDate: formatDateToEnglish(blog.published_at),
+            readingTime: formatReadingTime(blog.time),
           }))
           .filter((blog) => blog.categoryUrl === categoryUrl)
 
@@ -207,14 +190,14 @@ export default function BlogCategoryPage({ categoryParams }) {
                     </div>
                     <div className="py-2 px-4">
                       <div className="mb-3">
-                        <span className="inline-block px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-400">
+                        <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
                           {post.category}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-800">
                         {post.title}
                       </h3>
-                      <p className="text-xs text-gray-400">{post.formattedDate}</p>
+                      <p className="text-xs text-gray-400">{post.readingTime}</p>
                     </div>
                   </div>
                 </Link>

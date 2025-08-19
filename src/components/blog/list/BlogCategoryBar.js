@@ -59,7 +59,7 @@ export default function BlogCategoryBar() {
               }`}
             >
               <span>{cat.icon}</span>
-              <span className="text-sm max-md:text-xs">{cat.label}</span>
+              <span className="text-lg max-md:text-sm">{cat.label}</span>
             </Link>
           )
         })}

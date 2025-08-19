@@ -4,7 +4,7 @@ export async function fetchBlogsFromSupabase() {
   const { data: blogsRaw, error } = await supabaseClient
     .from('blog')
     .select(
-      `id, title, published_at, thumbnail, url, description, section, body, 
+      `id, title, published_at, thumbnail, url, description, section, body, time,
        blog_authors(author(name)), 
        blog_categories(category(name, url))`,
     )

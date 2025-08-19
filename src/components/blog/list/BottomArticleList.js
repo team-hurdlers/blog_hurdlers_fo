@@ -7,26 +7,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 
-function formatDateToEnglish(dateString) {
-  const date = new Date(dateString)
-  const months = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
-  ]
-  const month = months[date.getMonth()]
-  const day = date.getDate()
-  const year = date.getFullYear()
-  return `${month} ${day}, ${year}`
+function formatReadingTime(timeInMinutes) {
+  if (!timeInMinutes) return '5 min read'
+  return `${timeInMinutes} min read`
 }
 
 export default function BottomArticleList({
@@ -44,16 +27,16 @@ export default function BottomArticleList({
     },
   })
 
-  // Process posts to add formatted date
+  // Process posts to add reading time
   const formattedPosts = posts.map((post) => ({
     ...post,
-    formattedDate: formatDateToEnglish(post.published_at),
+    readingTime: formatReadingTime(post.time),
   }))
 
   return (
     <div className="relative">
       <div className="flex items-center justify-between mb-4 px-1">
-        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider">
+        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider">
           {category}
         </h2>
         <div className="flex items-center gap-4">
@@ -86,14 +69,14 @@ export default function BottomArticleList({
                   </div>
                   <div className="py-2 px-4">
                     <div className="mb-3">
-                      <span className="inline-block px-3 py-1 text-xs rounded-full border border-gray-300 text-gray-400">
+                      <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
                         {category}
                       </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-gray-800">
                       {post.title}
                     </h3>
-                    <p className="text-xs text-gray-400">{post.formattedDate}</p>
+                    <p className="text-xs text-gray-400">{post.readingTime}</p>
                   </div>
                 </div>
               </Link>

@@ -6,7 +6,7 @@ import { AlertProvider } from '@/context/AlertContext'
 import { GTMComponent } from '@/components/shared/gtm'
 import { SessionWrapper } from '@/components/shared/SessionProvider'
 import { createMetadata } from '@/utils/createMetadata'
-import { getOrganizationJSONLD } from '@/utils/createJSONLD'
+import { getOrganizationJSONLD, getBlogJSONLD } from '@/utils/createJSONLD'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,6 +27,7 @@ export const metadata = createMetadata({
 
 export default function RootLayout({ children }) {
   const organizationStructuredData = getOrganizationJSONLD()
+  const blogStructuredData = getBlogJSONLD()
 
   return (
     <html lang="ko">
@@ -46,6 +47,14 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationStructuredData),
+          }}
+        />
+        
+        {/* 블로그 구조화된 데이터 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(blogStructuredData),
           }}
         />
       </head>

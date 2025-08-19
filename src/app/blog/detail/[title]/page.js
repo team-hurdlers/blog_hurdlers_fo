@@ -1,4 +1,4 @@
-// /src/app/blog/list/[category]/page.js
+// /src/app/blog/detail/[title]/page.js
 
 import { createMetadata } from '@/utils/createMetadata'
 import BlogDetailPage from './BlogDetailPage'
@@ -14,17 +14,24 @@ export async function generateMetadata(props) {
       `
       title,
       description,
-      url
+      url,
+      thumbnail,
+      blog_authors(author:author_id(name)),
+      blog_categories(category:category_id(name))
     `,
     )
     .eq('url', title)
     .eq('is_published', true)
     .single()
 
+  const author = blog?.blog_authors?.[0]?.author?.name || 'Hurdlers'
+  const category = blog?.blog_categories?.[0]?.category?.name || ''
+
   return createMetadata({
-    title: `AX 마케팅 플랫폼 | 블로그 | ${blog.title} | 허들러스101`,
-    description: blog.description,
+    title: blog.title,
+    description: `${blog.description}\n\nWritten by ${author}${category ? `\nFiled under ${category}` : ''}`,
     path: `/blog/detail/${blog.url}`,
+    image: blog.thumbnail,
   })
 }
 

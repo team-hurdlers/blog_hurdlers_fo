@@ -1,6 +1,7 @@
 // utils/createMetadata.ts
-export function createMetadata({ title, description, path, keywords }) {
+export function createMetadata({ title, description, path, keywords, image }) {
   const fullUrl = `https://101.hurdlers.kr${path}`
+  const ogImage = image || '/new-logo.png'
 
   return {
     title,
@@ -19,15 +20,15 @@ export function createMetadata({ title, description, path, keywords }) {
       canonical: path,
     },
     openGraph: {
-      siteName: 'Hurdlers101',
+      siteName: 'Hurdlers',
       locale: 'ko_KR',
-      type: 'website',
+      type: 'article',
       title,
       description,
       url: fullUrl,
       images: [
         {
-          url: '/v3/main/main-hero2.jpg',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -38,7 +39,7 @@ export function createMetadata({ title, description, path, keywords }) {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/v3/main/main-hero2.jpg'],
+      images: [ogImage],
     },
     robots: {
       index: true,

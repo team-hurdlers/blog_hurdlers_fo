@@ -1,3 +1,4 @@
+// src/app/blog/detail/[title]/BlogDetailPage.js
 'use client'
 
 import Footer from '@/components/shared/footer'
@@ -134,17 +135,13 @@ export default function BlogDetailPage({ detailParams }) {
       <BlogHeader />
         <main className="flex-grow relative px-0 sm:px-6 lg:px-0">
           <div className="w-full bg-white text-black">
-            <div className="flex flex-col lg:flex-row w-full h-full bg-white relative">
-              {/* 왼쪽 사이드바 - 공간 확보용 */}
-              <div className="hidden lg:block w-[220px] min-w-[220px] flex-shrink-0">
-                {/* 사이드바 공간 확보 */}
-              </div>
-
-              {/* 왼쪽 사이드바 - 실제 내용 */}
-              <div
-                id="toc-scroll-container"
-                className="w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white fixed left-0 top-[69px] bottom-0 overflow-y-auto hidden lg:block pb-20"
-              >
+            <div className="flex flex-col lg:flex-row w-full bg-white relative min-h-screen">
+              {/* 왼쪽 사이드바 */}
+              <div className="hidden lg:block w-[220px] min-w-[220px] border-r border-[#e0e0e0] bg-white sticky top-[69px] h-fit min-h-[calc(100vh-69px)]">
+                <div
+                  id="toc-scroll-container"
+                  className="overflow-y-auto max-h-[calc(100vh-69px)]"
+                >
                 <Link
                   href="/blog"
                   className="flex items-center px-4 py-3 text-sm text-[#666] border-b border-[#e0e0e0] cursor-pointer hover:bg-[#f5f5f5]"
@@ -171,6 +168,7 @@ export default function BlogDetailPage({ detailParams }) {
                     INDEX
                   </div>
                   <TableOfContents />
+                </div>
                 </div>
               </div>
 
@@ -276,14 +274,10 @@ export default function BlogDetailPage({ detailParams }) {
                 />
               </div>
 
-              {/* 오른쪽 사이드바 - 공간 확보용 */}
-              <div className="hidden lg:block w-[280px] min-w-[280px] flex-shrink-0">
-                {/* 사이드바 공간 확보 */}
-              </div>
-
-              {/* 오른쪽 사이드바 - 실제 내용 */}
-              <div className="w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white fixed right-0 top-[69px] bottom-0 overflow-y-auto hidden lg:block">
-                <div className="p-5">
+              {/* 오른쪽 사이드바 */}
+              <div className="hidden lg:block w-[280px] min-w-[280px] border-l border-[#e0e0e0] bg-white sticky top-[69px] h-fit min-h-[calc(100vh-69px)]">
+                <div className="overflow-y-auto max-h-[calc(100vh-69px)]">
+                  <div className="p-5">
                   {/* Categories Section - 위로 이동 */}
                   <div>
                     <h2 className="font-bold text-lg mb-4">CATEGORIES</h2>
@@ -336,7 +330,18 @@ export default function BlogDetailPage({ detailParams }) {
                     <div className="flex flex-col space-y-2">
                       <button
                         onClick={() => {
-                          const shareText = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n${window.location.href}\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\nhurdlers.kr`
+                          const categoryName = blog.blog_categories?.[0]?.category?.name || ''
+                          const shareText = `Hurdlers
+${blog.title}
+${blog.description || ''}
+
+Written by
+${author}
+
+Filed under
+${categoryName}
+
+${window.location.href}`
                           navigator.clipboard.writeText(shareText)
                           alert('링크가 복사되었습니다!')
                         }}
@@ -420,11 +425,15 @@ export default function BlogDetailPage({ detailParams }) {
                       </svg>
                     </Link>
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </main>
+        <div className="w-full border-t border-gray-200"></div>
+        <div className="mt-16 px-0 sm:px-6 lg:px-0">
+        </div>
         <Footer />
       </div>
     </>
