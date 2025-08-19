@@ -331,17 +331,7 @@ export default function BlogDetailPage({ detailParams }) {
                       <button
                         onClick={() => {
                           const categoryName = blog.blog_categories?.[0]?.category?.name || ''
-                          const shareText = `Hurdlers
-${blog.title}
-${blog.description || ''}
-
-Written by
-${author}
-
-Filed under
-${categoryName}
-
-${window.location.href}`
+                          const shareText = `Hurdlers${window.location.href}`
                           navigator.clipboard.writeText(shareText)
                           alert('링크가 복사되었습니다!')
                         }}
