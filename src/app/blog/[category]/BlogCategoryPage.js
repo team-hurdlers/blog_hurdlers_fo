@@ -10,6 +10,7 @@ import Link from 'next/link'
 import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
 import { getBlogCategoryJSONLD } from '@/utils/createJSONLD'
 import Header from '@/components/shared/header'
+import FloatingButtons from '@/components/shared/FloatingButtons'
 
 function formatReadingTime(timeInMinutes) {
   if (!timeInMinutes) return '3 min read'
@@ -243,6 +244,9 @@ export default function BlogCategoryPage({ categoryParams }) {
         </div>
       </main>
       <Footer />
+
+      {/* Floating 버튼들 */}
+      <FloatingButtons />
     </>
   )
 }

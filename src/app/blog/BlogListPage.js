@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '@/components/shared/header'
 import Footer from '@/components/shared/footer'
 import TopArticle from '@/components/blog/list/TopArticle'
@@ -17,10 +17,28 @@ const MAIN_CATEGORIES = ['Case Study', 'AI', 'Data', '허들러스 소식']
 export default function BlogListPage({ initialData }) {
   const setBlogData = useBlogStore((state) => state.setBlogData)
   const { blogs, topArticle, bestArticles, otherCategories } = useBlogStore()
+  const [showScrollToTop, setShowScrollToTop] = useState(false)
 
   useEffect(() => {
     setBlogData(initialData)
   }, [initialData, setBlogData])
+
+  // 스크롤 투 탑 기능
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollToTop(window.scrollY > 400)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
   const blogStructuredData = getBlogJSONLD()
 
@@ -75,6 +93,29 @@ export default function BlogListPage({ initialData }) {
         </div>
       </main>
       <Footer />
+
+      {/* 스크롤 투 탑 버튼 */}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 z-50 right-6 w-12 h-12 bg-black hover:bg-gray-800 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
+          aria-label="맨 위로 스크롤"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M18 15l-6-6-6 6"/>
+          </svg>
+        </button>
+      )}
     </>
   )
 }
