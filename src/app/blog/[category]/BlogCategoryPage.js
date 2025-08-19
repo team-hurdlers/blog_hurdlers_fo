@@ -246,7 +246,7 @@ export default function BlogCategoryPage({ categoryParams }) {
       <Footer />
 
       {/* Floating 버튼들 */}
-      <FloatingButtons />
+      <FloatingButtons showCategoryOnDesktop={false} />
     </>
   )
 }

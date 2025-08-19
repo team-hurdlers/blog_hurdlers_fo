@@ -10,7 +10,7 @@ import {
   Newspaper,
 } from 'lucide-react'
 
-export default function FloatingButtons({ position = 'default' }) {
+export default function FloatingButtons({ position = 'default', showCategoryOnDesktop = true }) {
   const [showScrollToTop, setShowScrollToTop] = useState(false)
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
 
@@ -60,7 +60,7 @@ export default function FloatingButtons({ position = 'default' }) {
       {/* 카테고리 메뉴 버튼 - 왼쪽 */}
       <button
         onClick={toggleCategoryMenu}
-        className={`fixed bottom-6 z-50 ${positions.category} w-12 h-12 bg-gray-700 hover:bg-gray-600 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center`}
+        className={`fixed bottom-6 z-50 ${positions.category} w-12 h-12 bg-gray-700 hover:bg-gray-600 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${!showCategoryOnDesktop ? 'lg:hidden' : ''}`}
         aria-label="카테고리 메뉴"
       >
         <svg

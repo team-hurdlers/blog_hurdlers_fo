@@ -325,8 +325,6 @@ export default function BlogDetailPage({ detailParams }) {
                   {/* Share Section - 아래로 이동하고 버튼 형태로 변경 */}
                   <div className="mt-8">
                     <h2 className="font-bold text-lg mb-4">SHARE ARTICLE</h2>
-                    {/* 기존 ShareButtons 주석 처리 */}
-                    {/* <ShareButtons title={blog.title} /> */}
                     
                     {/* 새로운 버튼 형태 공유 */}
                     <div className="flex flex-col space-y-2">
@@ -432,7 +430,7 @@ export default function BlogDetailPage({ detailParams }) {
       </div>
 
       {/* Floating 버튼들 */}
-      <FloatingButtons position="sidebar" />
+      <FloatingButtons position="sidebar" showCategoryOnDesktop={false} />
     </>
   )
 }
