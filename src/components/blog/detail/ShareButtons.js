@@ -22,12 +22,28 @@ export default function ShareButtons({ title }) {
 
   const shareToLinkedIn = () => {
     const url = encodeURIComponent(window.location.href)
-    const encodedTitle = encodeURIComponent(title)
-    const summary = encodeURIComponent(`${title} - 블로그 내용 요약`)
-    const source = encodeURIComponent('Your Site Name')
+    const encodedTitle = encodeURIComponent(`${title} - Hurdlers 블로그에서 발행`)
+    const summary = encodeURIComponent(`고객 경험을 한 차원 높이는 AX 마케팅 | hurdlers.kr | #Hurdlers #허들러스 #AX마케팅 #고객경험`)
+    const source = encodeURIComponent('Hurdlers')
 
     const linkedinUrl = `https://www.linkedin.com/shareArticle?url=${url}&title=${encodedTitle}&summary=${summary}&source=${source}`
     window.open(linkedinUrl, '_blank', 'width=600,height=600')
+  }
+
+  const shareToFacebook = () => {
+    const url = encodeURIComponent(window.location.href)
+    const titleText = `${title} - Hurdlers 블로그`
+    const summary = `고객 경험을 한 차원 높이는 AX 마케팅 | #Hurdlers #허들러스 #AX마케팅 #고객경험`
+    const fullText = `${titleText}\n\n${summary}`
+    
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(fullText)}&u=${url}`
+    window.open(facebookUrl, '_blank', 'width=600,height=600')
+  }
+
+  const shareToTwitter = () => {
+    const text = `${title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\n\nhurdlers.kr\n\n${window.location.href}`
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    window.open(twitterUrl, '_blank', 'width=600,height=600')
   }
 
   return (
@@ -73,6 +89,52 @@ export default function ShareButtons({ title }) {
             </defs>
           </svg>
           {isCopied ? 'Copied!' : 'Copy link'}
+        </div>
+        <div
+          className="flex items-center px-4 py-3 rounded cursor-pointer text-sm text-[#333] border-b border-[#e8e8e8] hover:bg-gray-100"
+          role="button"
+          tabIndex="0"
+          onClick={shareToFacebook}
+          aria-label="Share on Facebook"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="mr-2"
+          >
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+          Share on Facebook
+        </div>
+        <div
+          className="flex items-center px-4 py-3 rounded cursor-pointer text-sm text-[#333] border-b border-[#e8e8e8] hover:bg-gray-100"
+          role="button"
+          tabIndex="0"
+          onClick={shareToTwitter}
+          aria-label="Share on Twitter"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="mr-2"
+          >
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+          </svg>
+          Share on Twitter
         </div>
         <div
           className="flex items-center px-4 py-3 rounded cursor-pointer text-sm text-[#333] border-b border-[#e8e8e8] hover:bg-gray-100"
