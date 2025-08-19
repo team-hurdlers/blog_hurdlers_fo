@@ -89,9 +89,15 @@ export default function BlogCategoryPage({ categoryParams }) {
     if (blogRows.length > 0) {
       try {
         // 카테고리 URL로 필터링
-        const categoryBlogdata = blogRows.filter(
-          (blog) => blog.blog_categories?.[0]?.category?.url === categoryUrl,
-        )
+        const categoryBlogdata = blogRows
+          .filter((blog) => blog.blog_categories?.[0]?.category?.url === categoryUrl)
+          .map((blog) => ({
+            ...blog,
+            author: blog.blog_authors?.[0]?.author?.name || 'Unknown Author',
+            category: blog.blog_categories?.[0]?.category?.name || 'Uncategorized',
+            categoryUrl: blog.blog_categories?.[0]?.category?.url,
+            readingTime: formatReadingTime(blog.time),
+          }))
 
         // 해당 카테고리의 게시글이 있는 경우
         setBlogs(categoryBlogdata || [])
