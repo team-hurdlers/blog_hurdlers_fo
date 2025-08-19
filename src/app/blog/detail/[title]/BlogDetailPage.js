@@ -338,7 +338,7 @@ export default function BlogDetailPage({ detailParams }) {
                         onClick={() => {
                           const shareText = `${blog.title} - Hurdlers 블로그에서 발행 | 고객 경험을 한 차원 높이는 AX 마케팅\n\n${window.location.href}\n\n#Hurdlers #허들러스 #AX마케팅 #고객경험\nhurdlers.kr`
                           navigator.clipboard.writeText(shareText)
-                          alert('공유 텍스트가 복사되었습니다!')
+                          alert('링크가 복사되었습니다!')
                         }}
                         className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-lg transition-colors"
                       >
