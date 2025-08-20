@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react'
 import { useBlogStore } from '@/stores/blogStore'
 import supabaseClient from '@/lib/supabase-client'
-import Footer from '@/components/shared/footer'
+import Footer from '@/components/layout/footer'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Clock } from 'lucide-react'
-import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
+import BlogCategoryBar from '@/components/list/BlogCategoryBar'
 import { getBlogCategoryJSONLD } from '@/utils/createJSONLD'
-import Header from '@/components/shared/header'
-import FloatingButtons from '@/components/shared/FloatingButtons'
+import Header from '@/components/layout/header'
+import FloatingButtons from '@/components/layout/FloatingButtons'
 
 function formatReadingTime(timeInMinutes) {
   if (!timeInMinutes) return '3 min read'
@@ -183,7 +183,7 @@ export default function BlogCategoryPage({ categoryParams }) {
               {blogs.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/blog/detail/${post.url}` || '#'}
+                  href={`/post/${post.url}` || '#'}
                   className="block h-full"
                 >
                   <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">
@@ -223,7 +223,7 @@ export default function BlogCategoryPage({ categoryParams }) {
                 다른 카테고리를 확인하거나 나중에 다시 방문해주세요.
               </p>
               <Link
-                href="/blog"
+                href="/"
                 className="inline-flex items-center px-4 py-2 bg-black text-white hover:bg-gray-800 transition rounded-lg"
               >
                 <span>모든 글 보기</span>

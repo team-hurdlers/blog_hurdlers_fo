@@ -4,10 +4,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { toast, ToastContainer } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import supabaseClient from '../../../../lib/supabase-client'
+import supabaseClient from '../../../lib/supabase-client'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import 'react-toastify/dist/ReactToastify.css'
-import AuthButton from '@/components/blog/editor/AuthButton'
+import AuthButton from '@/components/editor/AuthButton'
 import { useSession } from 'next-auth/react'
 import { notFound } from 'next/navigation'
 
@@ -845,7 +845,7 @@ export default function BlogEditorPage() {
     if (data) {
       setId(data.id)
       setTitle(data.title || '')
-      setSlug(`https://101.hurdlers.kr/blog/detail/${data.id}`) // 슬러그 업데이트
+      setSlug(`https://blog.hurdlers.kr/post/${data.id}`) // 슬러그 업데이트
       setUrl(data.url || '')
       setThumbnailURL(data.thumbnail || '')
       // 썸네일 미리보기 설정

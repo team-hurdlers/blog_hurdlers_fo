@@ -63,7 +63,7 @@ export default function RelatedBlogs({ posts, category, categoryUrl }) {
       <div ref={sliderRef} className="keen-slider">
         {formattedPosts.map((post) => (
           <div key={post.id} className="keen-slider__slide p-1">
-            <Link href={`/blog/detail/${post.url}`}>
+            <Link href={`/post/${post.url}`}>
               <div className="shadow-xs hover:shadow-md transition duration-300 h-full rounded-lg overflow-hidden bg-white flex flex-col">
                 <Image
                   src={post.thumbnail || '/placeholder.jpg'}
@@ -91,7 +91,7 @@ export default function RelatedBlogs({ posts, category, categoryUrl }) {
 
       <div className="text-right mt-4 pr-1 mb-10">
         <Link
-          href={`/blog/${categoryUrl}`}
+          href={`/${categoryUrl}`}
           className="text-sm text-gray-900 hover:underline"
         >
           See all →

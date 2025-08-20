@@ -15,7 +15,7 @@ const categories = [
     label: '전체보기',
     slug: '',
     icon: <Menu size={18} />,
-    url: '/blog',
+    url: '/',
   },
   {
     label: 'Case Study',
@@ -49,7 +49,7 @@ export default function BlogCategoryBar() {
         <div className="hidden md:flex gap-6 items-center justify-center">
           <span className="text-xl">Jump With Us</span>
           {categories.map((cat) => {
-            const href = cat.slug ? `/blog/${cat.slug}` : cat.url
+            const href = cat.slug ? `/${cat.slug}` : cat.url
             const isActive = pathname === href
 
             return (
@@ -76,7 +76,7 @@ export default function BlogCategoryBar() {
             </div>
             
             {categories.map((cat) => {
-              const href = cat.slug ? `/blog/${cat.slug}` : cat.url
+              const href = cat.slug ? `/${cat.slug}` : cat.url
               const isActive = pathname === href
 
               return (

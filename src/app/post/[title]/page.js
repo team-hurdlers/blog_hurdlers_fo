@@ -30,7 +30,7 @@ export async function generateMetadata(props) {
   return createMetadata({
     title: blog.title,
     description: `${blog.description}\n\nWritten by ${author}${category ? `\nFiled under ${category}` : ''}`,
-    path: `/blog/detail/${blog.url}`,
+    path: `/post/${blog.url}`,
     image: blog.thumbnail,
   })
 }

@@ -1,7 +1,7 @@
 // utils/createMetadata.ts
 export function createMetadata({ title, description, path, keywords, image }) {
-  const fullUrl = `https://101.hurdlers.kr${path}`
-  const ogImage = image || '/new-logo.png'
+  const fullUrl = `https://blog.hurdlers.kr${path}`
+  const ogImage = image || '/logo.png'
 
   return {
     title,
@@ -15,7 +15,7 @@ export function createMetadata({ title, description, path, keywords, image }) {
       '마케팅 솔루션',
       '디지털 마케팅',
     ],
-    metadataBase: new URL('https://101.hurdlers.kr'),
+    metadataBase: new URL('https://blog.hurdlers.kr'),
     alternates: {
       canonical: path,
     },

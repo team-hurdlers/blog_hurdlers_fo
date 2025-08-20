@@ -129,7 +129,7 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
               <h3 className="font-bold text-lg mb-3 text-black">CATEGORIES</h3>
               <div className="space-y-2">
                 <Link
-                  href="/blog"
+                  href="/"
                   className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setShowCategoryMenu(false)}
                 >
@@ -137,7 +137,7 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
                   <span>전체보기</span>
                 </Link>
                 <Link
-                  href="/blog/case-studies"
+                  href="/case-studies"
                   className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setShowCategoryMenu(false)}
                 >
@@ -145,7 +145,7 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
                   <span>Case Study</span>
                 </Link>
                 <Link
-                  href="/blog/ai"
+                  href="/ai"
                   className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setShowCategoryMenu(false)}
                 >
@@ -153,7 +153,7 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
                   <span>AI</span>
                 </Link>
                 <Link
-                  href="/blog/data"
+                  href="/data"
                   className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setShowCategoryMenu(false)}
                 >
@@ -161,7 +161,7 @@ export default function FloatingButtons({ position = 'default', showCategoryOnDe
                   <span>Data</span>
                 </Link>
                 <Link
-                  href="/blog/news"
+                  href="/news"
                   className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                   onClick={() => setShowCategoryMenu(false)}
                 >

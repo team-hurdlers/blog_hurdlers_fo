@@ -8,14 +8,13 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 export async function GET() {
-  const baseUrl = 'https://101.hurdlers.kr'
+  const baseUrl = 'https://blog.hurdlers.kr'
 
   const staticPaths = [
     '',
     '/about/vision',
     '/about/career',
     '/about/career/backend-developer',
-    '/blog',
     '/demo',
     '/demo/all-services',
     '/demo/service/1',
@@ -48,8 +47,8 @@ export async function GET() {
   }
 
   const categoryUrls =
-    categories?.map((cat) => `${baseUrl}/blog/${cat.url}`) ?? []
-  const blogUrls = blogs?.map((b) => `${baseUrl}/blog/detail/${b.url}`) ?? []
+    categories?.map((cat) => `${baseUrl}/${cat.url}`) ?? []
+  const blogUrls = blogs?.map((b) => `${baseUrl}/post/${b.url}`) ?? []
 
   const allUrls = [
     ...staticPaths.map((path) => `${baseUrl}${path}`),

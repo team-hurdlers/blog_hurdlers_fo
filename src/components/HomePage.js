@@ -1,12 +1,13 @@
+// src/components/HomePage.js
 'use client'
 
 import { useEffect, useState } from 'react'
-import Header from '@/components/shared/header'
-import Footer from '@/components/shared/footer'
-import TopArticle from '@/components/blog/list/TopArticle'
-import BestArticleList from '@/components/blog/list/BestArticleList'
-import BottomArticleList from '@/components/blog/list/BottomArticleList'
-import BlogCategoryBar from '@/components/blog/list/BlogCategoryBar'
+import Header from '@/components/layout/header'
+import Footer from '@/components/layout/footer'
+import TopArticle from '@/components/list/TopArticle'
+import BestArticleList from '@/components/list/BestArticleList'
+import BottomArticleList from '@/components/list/BottomArticleList'
+import BlogCategoryBar from '@/components/list/BlogCategoryBar'
 import { getBlogJSONLD } from '@/utils/createJSONLD'
 import { useBlogStore } from '@/stores/blogStore'
 
@@ -14,7 +15,7 @@ import { useBlogStore } from '@/stores/blogStore'
 // 메인페이지에 표시할 카테고리 순서
 const MAIN_CATEGORIES = ['Case Study', 'AI', 'Data', '허들러스 소식']
 
-export default function BlogListPage({ initialData }) {
+export default function HomePage({ initialData }) {
   const setBlogData = useBlogStore((state) => state.setBlogData)
   const { blogs, topArticle, bestArticles, otherCategories } = useBlogStore()
   const [showScrollToTop, setShowScrollToTop] = useState(false)

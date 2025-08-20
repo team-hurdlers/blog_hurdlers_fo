@@ -55,7 +55,7 @@ export default function BottomArticleList({
           <div key={post.id} className="keen-slider__slide p-1">
             <article className="group card-hover shadow-lg transition duration-300 h-full rounded-2xl">
               <Link
-                href={'/blog/detail/' + post.url || '#'}
+                href={'/post/' + post.url || '#'}
                 className="block h-full"
               >
                 <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">
@@ -91,7 +91,7 @@ export default function BottomArticleList({
 
       <div className="text-right mt-6 pr-1">
         <Link
-          href={`/blog/${categoryUrl}`}
+          href={`/${categoryUrl}`}
           className="inline-flex items-center text-sm font-semibold text-black hover:translate-x-1 transition-transform duration-300"
         >
           See all

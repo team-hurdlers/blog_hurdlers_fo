@@ -1,20 +1,20 @@
 // src/app/blog/detail/[title]/BlogDetailPage.js
 'use client'
 
-import Footer from '@/components/shared/footer'
+import Footer from '@/components/layout/footer'
 import { notFound } from 'next/navigation'
-import TableOfContents from '@/components/blog/detail/TableOfContents'
-import ShareButtons from '@/components/blog/detail/ShareButtons'
-import TitleShareButtons from '@/components/blog/detail/TitleShareButtons'
+import TableOfContents from '@/components/detail/TableOfContents'
+import ShareButtons from '@/components/detail/ShareButtons'
+import TitleShareButtons from '@/components/detail/TitleShareButtons'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getBlogDetailJSONLD } from '@/utils/createJSONLD'
-import RelatedBlogs from '@/components/blog/detail/RelatedBlogs'
+import RelatedBlogs from '@/components/detail/RelatedBlogs'
 import { useBlogStore } from '@/stores/blogStore'
 import supabaseClient from '@/lib/supabase-client'
 import { useEffect, useState } from 'react'
-import BlogHeader from '@/components/shared/blog-header'
-import FloatingButtons from '@/components/shared/FloatingButtons'
+import BlogHeader from '@/components/layout/blog-header'
+import FloatingButtons from '@/components/layout/FloatingButtons'
 import {
   Menu,
   Smartphone,
@@ -144,7 +144,7 @@ export default function BlogDetailPage({ detailParams }) {
                   className="overflow-y-auto max-h-[calc(100vh-69px)]"
                 >
                 <Link
-                  href="/blog"
+                  href="/"
                   className="flex items-center px-4 py-3 text-sm text-[#666] border-b border-[#e0e0e0] cursor-pointer hover:bg-[#f5f5f5]"
                 >
                   <svg
@@ -315,35 +315,35 @@ export default function BlogDetailPage({ detailParams }) {
                     <h2 className="font-bold text-lg mb-4">CATEGORIES</h2>
                     <div className="space-y-2">
                       <Link
-                        href="/blog"
+                        href="/"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                       >
                         <Menu size={16} />
                         <span>전체보기</span>
                       </Link>
                       <Link
-                        href="/blog/case-studies"
+                        href="/case-studies"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                       >
                         <Smartphone size={16} />
                         <span>Case Study</span>
                       </Link>
                       <Link
-                        href="/blog/ai"
+                        href="/ai"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                       >
                         <Search size={16} />
                         <span>AI</span>
                       </Link>
                       <Link
-                        href="/blog/data"
+                        href="/data"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                       >
                         <CheckSquare size={16} />
                         <span>Data</span>
                       </Link>
                       <Link
-                        href="/blog/news"
+                        href="/news"
                         className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                       >
                         <Newspaper size={16} />

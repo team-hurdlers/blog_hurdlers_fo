@@ -1,4 +1,4 @@
-import Footer from '@/components/shared/footer'
+import Footer from '@/components/layout/footer'
 import PrivacyHeader from '@/components/privacy/privacy-header'
 import PrivacyContent from '@/components/privacy/privacy-content'
 import { createMetadata } from '@/utils/createMetadata'

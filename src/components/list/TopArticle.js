@@ -17,7 +17,7 @@ export default function TopArticle({ article }) {
   const readingTime = formatReadingTime(article.time)
 
   return (
-    <Link href={'/blog/detail/' + article.url || '#'}>
+    <Link href={'/post/' + article.url || '#'}>
       <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">
         <div className="relative">
           <Image
