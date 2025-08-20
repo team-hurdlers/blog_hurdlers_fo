@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata = createMetadata({
-  title: 'AX 마케팅 플랫폼 | 허들러스101',
+  title: 'AX 마케팅 플랫폼 | 허들러스',
   description:
-    '허들러스101 AX 마케팅 플랫폼으로 AI 기반 마케팅 자동화 및 데이터를 활용한 혁신적인 전략을 구현하세요. AI 기술로 마케팅 성과를 극대화하고 효율적인 캠페인 운영을 지원합니다.',
+    '허들러스 AX 마케팅 플랫폼으로 AI 기반 마케팅 자동화 및 데이터를 활용한 혁신적인 전략을 구현하세요. AI 기술로 마케팅 성과를 극대화하고 효율적인 캠페인 운영을 지원합니다.',
   path: '/',
 })
 

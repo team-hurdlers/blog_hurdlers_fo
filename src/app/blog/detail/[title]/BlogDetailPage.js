@@ -274,7 +274,7 @@ export default function BlogDetailPage({ detailParams }) {
                     <ShareButtons title={blog.title} />
                     <div className="mt-4">
                       <Link
-                        href="/contact"
+                        href="https://v4-dev-hurdlers.framer.website/contact"
                         className="flex items-center justify-center px-[14px] py-[10px] bg-black hover:bg-gray-900 text-white text-sm rounded cursor-pointer w-full"
                       >
                         <span>Contact Us</span>

@@ -16,7 +16,6 @@ export async function GET() {
     '/about/career',
     '/about/career/backend-developer',
     '/blog',
-    '/contact',
     '/demo',
     '/demo/all-services',
     '/demo/service/1',
@@ -33,7 +32,6 @@ export async function GET() {
     '/service/commerce-brain',
     '/service/data-intelligence',
     '/service/marketing-intelligence',
-    '/service/test-vector-search',
   ]
 
   const { data: categories, error: categoryError } = await supabase
