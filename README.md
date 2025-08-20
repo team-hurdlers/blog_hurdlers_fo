@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 리다이렉트 설정
+
+이 프로젝트는 기존 블로그 URL들을 새로운 도메인으로 리다이렉트하는 설정이 포함되어 있습니다.
+
+### 리다이렉트 규칙
+
+#### hurdlers.kr → blog.hurdlers.kr
+- `https://hurdlers.kr/resource/blogs` → `https://blog.hurdlers.kr/`
+- `https://hurdlers.kr/resource/blogs/{글제목}` → `https://blog.hurdlers.kr/post/{글제목}`
+
+#### 101.hurdlers.kr → blog.hurdlers.kr  
+- `https://101.hurdlers.kr/blog` → `https://blog.hurdlers.kr/`
+- `https://101.hurdlers.kr/blog/detail/{글제목}` → `https://blog.hurdlers.kr/post/{글제목}`
+
+### 예시
+- `https://hurdlers.kr/resource/blogs/how-to-design-data-for-marketers` → `https://blog.hurdlers.kr/post/how-to-design-data-for-marketers`
+- `https://101.hurdlers.kr/blog/detail/ai-marketing-guide` → `https://blog.hurdlers.kr/post/ai-marketing-guide`
+
+리다이렉트 설정은 `next.config.mjs` 파일의 `redirects()` 함수에서 관리됩니다.

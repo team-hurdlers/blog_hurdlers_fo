@@ -47,6 +47,57 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      // hurdlers.kr/resource/blogs를 blog.hurdlers.kr로 리다이렉트
+      {
+        source: '/resource/blogs',
+        destination: 'https://blog.hurdlers.kr/',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: 'hurdlers.kr',
+          },
+        ],
+      },
+      // hurdlers.kr/resource/blogs/{글제목}을 blog.hurdlers.kr/post/{글제목}로 리다이렉트
+      {
+        source: '/resource/blogs/:slug*',
+        destination: 'https://blog.hurdlers.kr/post/:slug*',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: 'hurdlers.kr',
+          },
+        ],
+      },
+      // 101.hurdlers.kr의 블로그 관련 URL들을 blog.hurdlers.kr로 리다이렉트
+      {
+        source: '/blog',
+        destination: 'https://blog.hurdlers.kr/',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: '101.hurdlers.kr',
+          },
+        ],
+      },
+      {
+        source: '/blog/detail/:slug*',
+        destination: 'https://blog.hurdlers.kr/post/:slug*',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: '101.hurdlers.kr',
+          },
+        ],
+      },
+    ]
+  },
   experimental: {
     optimizeCss: false,
     optimizePackageImports: ['lucide-react'],
