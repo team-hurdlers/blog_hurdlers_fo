@@ -30,7 +30,7 @@ export default function TopArticle({ article }) {
         </div>
         <div className="py-2 px-4">
           <div className="mb-3">
-            <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
+            <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white font-bold">
               {category}
             </span>
           </div>

@@ -14,7 +14,7 @@ export default function BestArticleList({ articles }) {
 
   return (
     <div className="rounded-lg px-6 bg-white h-full flex flex-col">
-      <h3 className="font-bold text-2xl md:text-3xl mb-5 uppercase tracking-wider">Popular Articles</h3>
+      <h3 className="font-bold text-2xl md:text-3xl mb-5 uppercase tracking-wider">Best Articles</h3>
       <div className="flex-grow flex flex-col justify-between space-y-1">
         {limitedArticles.map((article) => {
           // Get category and reading time from article if available
@@ -40,7 +40,7 @@ export default function BestArticleList({ articles }) {
                       {article.title}
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white">
+                      <span className="inline-block px-3 py-1 text-xs bg-black rounded-full text-white font-bold">
                         {category}
                       </span>
                       <span className="text-xs text-gray-400 flex items-center gap-1">

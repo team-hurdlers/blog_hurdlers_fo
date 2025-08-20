@@ -67,7 +67,7 @@ export default function BlogCategoryBar() {
           })}
         </div>
 
-        {/* 모바일: 3행 2열 그리드 레이아웃 */}
+        {/* 모바일: 2행 2열 그리드 레이아웃 */}
         <div className="md:hidden">
           <div className="grid grid-cols-2 gap-3">
             {/* Jump With Us - 2칸 차지 */}
