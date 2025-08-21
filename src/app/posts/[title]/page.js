@@ -1,4 +1,4 @@
-// /src/app/blog/detail/[title]/page.js
+// /src/app/posts/[title]/page.js
 
 import { createMetadata } from '@/utils/createMetadata'
 import BlogDetailPage from './BlogDetailPage'
@@ -30,7 +30,7 @@ export async function generateMetadata(props) {
   return createMetadata({
     title: blog.title,
     description: `${blog.description}\n\nWritten by ${author}${category ? `\nFiled under ${category}` : ''}`,
-    path: `/post/${blog.url}`,
+    path: `/posts/${blog.url}`,
     image: blog.thumbnail,
   })
 }

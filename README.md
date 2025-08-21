@@ -43,14 +43,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 #### hurdlers.kr → blog.hurdlers.kr
 - `https://hurdlers.kr/resource/blogs` → `https://blog.hurdlers.kr/`
-- `https://hurdlers.kr/resource/blogs/{글제목}` → `https://blog.hurdlers.kr/post/{글제목}`
+- `https://hurdlers.kr/resource/blogs/{글제목}` → `https://blog.hurdlers.kr/posts/{글제목}`
 
 #### 101.hurdlers.kr → blog.hurdlers.kr  
 - `https://101.hurdlers.kr/blog` → `https://blog.hurdlers.kr/`
-- `https://101.hurdlers.kr/blog/detail/{글제목}` → `https://blog.hurdlers.kr/post/{글제목}`
+- `https://101.hurdlers.kr/blog/detail/{글제목}` → `https://blog.hurdlers.kr/posts/{글제목}`
 
 ### 예시
-- `https://hurdlers.kr/resource/blogs/how-to-design-data-for-marketers` → `https://blog.hurdlers.kr/post/how-to-design-data-for-marketers`
-- `https://101.hurdlers.kr/blog/detail/ai-marketing-guide` → `https://blog.hurdlers.kr/post/ai-marketing-guide`
+- `https://hurdlers.kr/resource/blogs/how-to-design-data-for-marketers` → `https://blog.hurdlers.kr/posts/how-to-design-data-for-marketers`
+- `https://101.hurdlers.kr/blog/detail/ai-marketing-guide` → `https://blog.hurdlers.kr/posts/ai-marketing-guide`
 
 리다이렉트 설정은 `next.config.mjs` 파일의 `redirects()` 함수에서 관리됩니다.

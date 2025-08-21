@@ -183,7 +183,7 @@ export default function BlogCategoryPage({ categoryParams }) {
               {blogs.map((post) => (
                 <Link
                   key={post.id}
-                  href={`/post/${post.url}` || '#'}
+                  href={`/posts/${post.url}` || '#'}
                   className="block h-full"
                 >
                   <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">

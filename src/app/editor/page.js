@@ -845,7 +845,7 @@ export default function BlogEditorPage() {
     if (data) {
       setId(data.id)
       setTitle(data.title || '')
-      setSlug(`https://blog.hurdlers.kr/post/${data.id}`) // 슬러그 업데이트
+      setSlug(`https://blog.hurdlers.kr/posts/${data.id}`) // 슬러그 업데이트
       setUrl(data.url || '')
       setThumbnailURL(data.thumbnail || '')
       // 썸네일 미리보기 설정

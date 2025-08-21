@@ -48,7 +48,7 @@ export async function GET() {
 
   const categoryUrls =
     categories?.map((cat) => `${baseUrl}/${cat.url}`) ?? []
-  const blogUrls = blogs?.map((b) => `${baseUrl}/post/${b.url}`) ?? []
+  const blogUrls = blogs?.map((b) => `${baseUrl}/posts/${b.url}`) ?? []
 
   const allUrls = [
     ...staticPaths.map((path) => `${baseUrl}${path}`),

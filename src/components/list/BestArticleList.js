@@ -24,7 +24,7 @@ export default function BestArticleList({ articles }) {
 
           return (
             <div key={article.id} className="flex-1 border-b border-gray-200 ">
-              <Link href={'/post/' + article.url || '#'}>
+              <Link href={'/posts/' + article.url || '#'}>
                 <div className="flex items-center space-x-4 cursor-pointer transition h-full shadow-xs hover:shadow-md rounded-lg p-2">
                   <div className="w-16 h-16 bg-gray-100 rounded overflow-hidden flex-shrink-0">
                     <Image

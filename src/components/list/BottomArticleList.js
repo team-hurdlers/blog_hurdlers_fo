@@ -55,7 +55,7 @@ export default function BottomArticleList({
           <div key={post.id} className="keen-slider__slide p-1">
             <article className="group card-hover shadow-lg transition duration-300 h-full rounded-2xl">
               <Link
-                href={'/post/' + post.url || '#'}
+                href={'/posts/' + post.url || '#'}
                 className="block h-full"
               >
                 <div className="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition bg-white h-full">

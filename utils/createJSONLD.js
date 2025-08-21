@@ -8,10 +8,10 @@ export const getBlogDetailJSONLD = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  url: `https://blog.hurdlers.kr/post/${url}`,
+  url: `https://blog.hurdlers.kr/posts/${url}`,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': `https://blog.hurdlers.kr/post/${url}`,
+    '@id': `https://blog.hurdlers.kr/posts/${url}`,
   },
   headline: title,
   description: description,

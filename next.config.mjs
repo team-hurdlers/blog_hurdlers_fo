@@ -61,10 +61,10 @@ const nextConfig = {
           },
         ],
       },
-      // hurdlers.kr/resource/blogs/{글제목}을 blog.hurdlers.kr/post/{글제목}로 리다이렉트
+      // hurdlers.kr/resource/blogs/{글제목}을 blog.hurdlers.kr/{글제목}로 리다이렉트
       {
         source: '/resource/blogs/:slug*',
-        destination: 'https://blog.hurdlers.kr/post/:slug*',
+        destination: 'https://blog.hurdlers.kr/posts/:slug*',
         permanent: true,
         has: [
           {
@@ -87,7 +87,7 @@ const nextConfig = {
       },
       {
         source: '/blog/detail/:slug*',
-        destination: 'https://blog.hurdlers.kr/post/:slug*',
+        destination: 'https://blog.hurdlers.kr/posts/:slug*',
         permanent: true,
         has: [
           {
