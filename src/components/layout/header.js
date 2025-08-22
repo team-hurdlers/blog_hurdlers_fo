@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Search, ChevronDown } from 'lucide-react'
 
@@ -9,6 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [dropdownTimeout, setDropdownTimeout] = useState(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -26,8 +28,46 @@ export default function Header() {
       name: 'Services',
       dropdown: true,
       items: [
-        { name: 'AX Consulting', href: 'https://v4-dev-hurdlers.framer.website/ai/ax-consulting' },
-        { name: 'AI Data Analysis', href: 'https://v4-dev-hurdlers.framer.website/ai/ai-data-analysis' }
+        { 
+          name: 'AI Transformation',
+          isCategory: true,
+          items: [
+            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/ai' },
+            { name: 'AX 컨설팅', href: 'https://v4-dev-hurdlers.framer.website/ai/ax-consulting', hot: true },
+            { name: 'AI 데이터 분석', href: 'https://v4-dev-hurdlers.framer.website/ai/ai-data-analysis', hot: true },
+            { name: 'AI 자동화 구축', href: 'https://v4-dev-hurdlers.framer.website/ai/ai-automation', hot: true },
+            { name: 'AI 생성형 컨텐츠', href: 'https://v4-dev-hurdlers.framer.website/ai/ai-content-generation', hot: true }
+          ]
+        },
+        {
+          name: 'Data',
+          isCategory: true,
+          items: [
+            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/data' },
+            { name: 'GA4 구축', href: 'https://v4-dev-hurdlers.framer.website/data/ga4', hot: true },
+            { name: '통합 대시보드 구축', href: 'https://v4-dev-hurdlers.framer.website/data/dashboard' },
+            { name: '마테크 유지보수', href: 'https://v4-dev-hurdlers.framer.website/data/maintenance' },
+            { name: '데이터 파이프라인 구축', href: 'https://v4-dev-hurdlers.framer.website/data/pipeline' }
+          ]
+        },
+        {
+          name: 'Marketing',
+          isCategory: true,
+          items: [
+            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/marketing' },
+            { name: '마테크 온보딩', href: 'https://v4-dev-hurdlers.framer.website/marketing/onboarding' },
+            { name: '그로스 마케팅', href: 'https://v4-dev-hurdlers.framer.website/marketing/growth' },
+            { name: '검색 광고 자동화', href: 'https://v4-dev-hurdlers.framer.website/marketing/automation' },
+            { name: 'SEO/AEO', href: 'https://v4-dev-hurdlers.framer.website/marketing/seo' }
+          ]
+        },
+        {
+          name: 'Develop',
+          isCategory: true,
+          items: [
+            { name: 'Web/App', href: 'https://v4-dev-hurdlers.framer.website/develop/web-app' }
+          ]
+        }
       ]
     },
     {
@@ -35,7 +75,7 @@ export default function Header() {
       dropdown: true,
       items: [
         { name: '블로그', href: '/' },
-        { name: '데모체험', href: 'https://demo.hurdlers.kr/' },
+        { name: '데모 체험', href: 'https://demo.hurdlers.kr/' },
         { name: '솔루션', href: '/' }
       ]
     },
@@ -60,6 +100,54 @@ export default function Header() {
     setActiveDropdown(activeDropdown === itemName ? null : itemName)
   }
 
+  const handleMouseEnter = (itemName) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout)
+      setDropdownTimeout(null)
+    }
+    setActiveDropdown(itemName)
+  }
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null)
+    }, 100) // 100ms 지연 (더 짧게)
+    setDropdownTimeout(timeout)
+  }
+
+  // 공통 스타일 클래스들
+  const menuItemClass = "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+  const categoryTitleClass = "text-xs font-medium text-gray-400 mb-2"
+  const hotTagClass = "ml-0.5 px-1.5 py-0.5 bg-white text-black text-xs font-medium rounded border border-black"
+
+  // 메뉴 아이템 렌더링 헬퍼 함수
+  const renderMenuItem = (subItem, showHot = false) => (
+    <div key={subItem.name} className={showHot && subItem.hot ? "flex items-center justify-between" : ""}>
+      <Link
+        href={subItem.href}
+        className={`${showHot && subItem.hot ? menuItemClass + " flex-1" : "block " + menuItemClass}`}
+        onClick={() => setActiveDropdown(null)}
+      >
+        {subItem.name}
+      </Link>
+      {showHot && subItem.hot && (
+        <span className={hotTagClass}>Hot</span>
+      )}
+    </div>
+  )
+
+  // 카테고리 섹션 렌더링 헬퍼 함수
+  const renderCategorySection = (category) => (
+    <div key={category.name} className="space-y-2">
+      <div className={categoryTitleClass}>
+        {category.name}
+      </div>
+      <div className="space-y-2">
+        {category.items.map((subItem) => renderMenuItem(subItem, true))}
+      </div>
+    </div>
+  )
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <div className="w-full flex justify-center px-5 py-4">
@@ -76,11 +164,16 @@ export default function Header() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
-                <div key={item.name} className="relative">
+                <div 
+                  key={item.name} 
+                  className="relative"
+                  onMouseEnter={() => item.dropdown && handleMouseEnter(item.name)}
+                  onMouseLeave={() => item.dropdown && handleMouseLeave()}
+                >
                   {item.dropdown ? (
                     <>
-                      <button
-                        onClick={() => toggleDropdown(item.name)}
+                      <Link
+                        href={item.href || '#'}
                         className={`
                           flex items-center space-x-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                           hover:bg-gray-100/80 hover:text-gray-900
@@ -97,20 +190,44 @@ export default function Header() {
                             activeDropdown === item.name ? 'rotate-180' : ''
                           }`} 
                         />
-                      </button>
+                      </Link>
                       
                       {activeDropdown === item.name && (
-                        <div className="absolute top-full left-0 mt-2 w-56 backdrop-blur-xl bg-white/95 border border-gray-200/20 rounded-lg shadow-lg z-50 py-2">
-                          {item.items.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 transition-colors"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
+                        <div 
+                          className={`absolute top-full left-0 mt-2 backdrop-blur-xl bg-white/95 border border-gray-200/20 rounded-lg shadow-lg z-50 ${
+                            item.name === 'Services' ? 'w-[800px] p-6' : 'w-56 p-4'
+                          }`}
+                          onMouseEnter={() => handleMouseEnter(item.name)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {item.name === 'Services' ? (
+                            <div className="grid grid-cols-3 gap-8">
+                              {/* AI Transformation + Develop Column */}
+                              <div className="space-y-3">
+                                {renderCategorySection(item.items.find(cat => cat.name === 'AI Transformation'))}
+                                {renderCategorySection(item.items.find(cat => cat.name === 'Develop'))}
+                              </div>
+                              
+                              {/* Data Column */}
+                              <div className="space-y-3">
+                                {renderCategorySection(item.items.find(cat => cat.name === 'Data'))}
+                              </div>
+                              
+                              {/* Marketing Column */}
+                              <div className="space-y-3">
+                                {renderCategorySection(item.items.find(cat => cat.name === 'Marketing'))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="space-y-2">
+                              <div className={categoryTitleClass}>
+                                {item.name}
+                              </div>
+                              <div className="space-y-2">
+                                {item.items.map((subItem) => renderMenuItem(subItem, false))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </>
@@ -191,19 +308,50 @@ export default function Header() {
                         </button>
                         {activeDropdown === item.name && (
                           <div className="ml-4 mt-2 space-y-1">
-                            {item.items.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors"
-                                onClick={() => {
-                                  setIsMenuOpen(false)
-                                  setActiveDropdown(null)
-                                }}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
+                            {item.name === 'Services' ? (
+                              item.items.map((category) => (
+                                <div key={category.name} className="space-y-2 mb-4">
+                                  <div className="text-base font-semibold text-gray-900 px-4 py-2">
+                                    {category.name}
+                                  </div>
+                                  <div className="space-y-1 ml-4">
+                                    {category.items.map((subItem) => (
+                                      <div key={subItem.name} className="flex items-center justify-between">
+                                        <Link
+                                          href={subItem.href}
+                                          className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors flex-1"
+                                          onClick={() => {
+                                            setIsMenuOpen(false)
+                                            setActiveDropdown(null)
+                                          }}
+                                        >
+                                          {subItem.name}
+                                        </Link>
+                                        {subItem.hot && (
+                                          <span className="mr-4 px-2 py-1 bg-gray-100 text-gray-900 text-xs font-medium rounded border">
+                                            Hot
+                                          </span>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))
+                            ) : (
+                              item.items.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100/60 rounded-lg transition-colors"
+                                  onClick={() => {
+                                    setIsMenuOpen(false)
+                                    setActiveDropdown(null)
+                                  }}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))
+                            )}
                           </div>
                         )}
                       </>
