@@ -39,7 +39,7 @@ export default function Footer() {
             지금 바로 문의하세요.
           </p>
           <Link
-            href="https://v4-dev-hurdlers.framer.website/contact"
+            href="https://v4-dev-hurdlers.framer.website/about/contact"
             className="inline-flex items-center px-8 py-4 bg-black text-white text-lg font-semibold rounded-lg hover:bg-gray-800 transition-colors"
           >
             Contact Us
@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-600">
               <li>
                 <Link 
-                  href="https://v4-dev-hurdlers.framer.website/ai/ax-consulting" 
+                  href="https://v4-dev-hurdlers.framer.website/service/ai/ax-consulting" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   AX 컨설팅
@@ -85,7 +85,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="https://v4-dev-hurdlers.framer.website/ai/ai-data-analysis" 
+                  href="https://v4-dev-hurdlers.framer.website/service/ai/ai-data-analysis" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   AI 데이터 분석
@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/ai/ai-automation" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   AI 자동화 구축
@@ -101,7 +101,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/ai/ai-contents" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   AI 생성형 컨텐츠
@@ -109,7 +109,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/data/ga4-consulting" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   GA4 구축
@@ -117,7 +117,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/data/integrated-dashboard" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   통합 대시보드 구축
@@ -125,10 +125,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/marketing/martech-onboarding" 
                   className="hover:text-gray-900 transition-colors"
                 >
-                  마케팅 온보딩
+                  마테크 온보딩
                 </Link>
               </li>
             </ul>
@@ -140,7 +140,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-600 mt-6">
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/data/data-pipeline-consulting" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   데이터 파이프라인 구축
@@ -148,7 +148,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/develop/web-app" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   Web/App 개발
@@ -156,15 +156,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/marketing/growth-marketing" 
                   className="hover:text-gray-900 transition-colors"
                 >
-                  크로스 마케팅
+                  그로스 마케팅
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/marketing/search-ad" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   검색 광고 자동화
@@ -172,15 +172,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/marketing/seo-aeo" 
                   className="hover:text-gray-900 transition-colors"
                 >
-                  SEO/GEO
+                  SEO/AEO
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="https://v4-dev-hurdlers.framer.website/service/data/martech-maintenance" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   마테크 유지보수
@@ -223,7 +223,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-600">
               <li>
                 <Link 
-                  href="https://v4-dev-hurdlers.framer.website/company" 
+                  href="https://v4-dev-hurdlers.framer.website/about/company" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   회사 소개
@@ -231,7 +231,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="https://v4-dev-hurdlers.framer.website/recruit" 
+                  href="https://v4-dev-hurdlers.framer.website/about/recruit" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   채용
@@ -239,7 +239,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="https://v4-dev-hurdlers.framer.website/contact" 
+                  href="https://v4-dev-hurdlers.framer.website/about/contact" 
                   className="hover:text-gray-900 transition-colors"
                 >
                   문의하기
