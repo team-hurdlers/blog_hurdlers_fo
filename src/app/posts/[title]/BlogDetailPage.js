@@ -29,9 +29,19 @@ export default function BlogDetailPage({ detailParams }) {
     if (detailParams && detailParams.value) {
       const parsed = JSON.parse(detailParams.value)
       title = parsed?.title || ''
+    } else if (detailParams && detailParams.title) {
+      title = detailParams.title
     }
   } catch (e) {
-    console.error('Failed to parse detailParams.value:', e)
+    console.error('Failed to parse detailParams:', e)
+    if (detailParams && detailParams.title) {
+      title = detailParams.title
+    }
+  }
+
+  if (!title) {
+    notFound()
+    return null
   }
   const blogRows = useBlogStore((state) => state.blogs)
 

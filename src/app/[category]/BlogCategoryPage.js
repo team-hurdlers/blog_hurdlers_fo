@@ -24,9 +24,19 @@ export default function BlogCategoryPage({ categoryParams }) {
     if (categoryParams && categoryParams.value) {
       const parsed = JSON.parse(categoryParams.value)
       categoryUrl = parsed?.category || ''
+    } else if (categoryParams && categoryParams.category) {
+      categoryUrl = categoryParams.category
     }
   } catch (e) {
-    console.error('Failed to parse categoryParams.value:', e)
+    console.error('Failed to parse categoryParams:', e)
+    if (categoryParams && categoryParams.category) {
+      categoryUrl = categoryParams.category
+    }
+  }
+
+  if (!categoryUrl) {
+    notFound()
+    return null
   }
 
   const [categoryName, setCategoryName] = useState(null)
@@ -46,7 +56,9 @@ export default function BlogCategoryPage({ categoryParams }) {
             .single()
 
         if (categoryError || !categoryData) {
+          setIsLoading(false)
           notFound()
+          return
         }
         const categoryName = categoryData.name
         setCategoryName(categoryName)
