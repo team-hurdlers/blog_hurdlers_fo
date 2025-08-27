@@ -194,7 +194,7 @@ export default function Header() {
                       
                       {activeDropdown === item.name && (
                         <div 
-                          className={`absolute top-full left-0 mt-2 backdrop-blur-xl bg-white/95 border border-gray-200/20 rounded-lg shadow-lg z-50 ${
+                          className={`absolute top-full left-0 mt-2 bg-white border border-gray-200/20 rounded-lg shadow-lg z-50 ${
                             item.name === 'Services' ? 'w-[800px] p-6' : 'w-56 p-4'
                           }`}
                           onMouseEnter={() => handleMouseEnter(item.name)}

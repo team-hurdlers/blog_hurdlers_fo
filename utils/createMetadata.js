@@ -1,7 +1,7 @@
 // utils/createMetadata.ts
 export function createMetadata({ title, description, path, keywords, image }) {
   const fullUrl = `https://blog.hurdlers.kr${path}`
-  const ogImage = image || '/logo.png'
+  const ogImage = image || '/metalogo.png'
 
   return {
     title,

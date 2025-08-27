@@ -27,7 +27,7 @@ export const getBlogDetailJSONLD = ({
     name: 'AX 마케팅 플랫폼 | 허들러스',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://blog.hurdlers.kr/logo.png',
+      url: 'https://blog.hurdlers.kr/metalogo.png',
     },
   },
 })
@@ -44,7 +44,7 @@ export const getBlogJSONLD = () => ({
     name: 'AX 마케팅 플랫폼 | 허들러스',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://blog.hurdlers.kr/logo.png',
+      url: 'https://blog.hurdlers.kr/metalogo.png',
     },
   },
 })
@@ -56,7 +56,7 @@ export const getOrganizationJSONLD = () => ({
   url: 'https://blog.hurdlers.kr',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://blog.hurdlers.kr/logo.png',
+    url: 'https://blog.hurdlers.kr/metalogo.png',
   },
   description:
     '허들러스 AX 마케팅 플랫폼으로 AI 기반 마케팅 자동화 및 데이터를 활용한 혁신적인 전략을 구현하세요. AI 기술로 마케팅 성과를 극대화하고 효율적인 캠페인 운영을 지원합니다.',
@@ -74,7 +74,7 @@ export const getBlogCategoryJSONLD = (categoryName) => ({
     name: 'AX 마케팅 플랫폼 | 허들러스',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://blog.hurdlers.kr/logo.png',
+      url: 'https://blog.hurdlers.kr/metalogo.png',
     },
   },
 })
@@ -91,7 +91,7 @@ export const getPrivacyPolicyJSONLD = () => ({
     name: 'AX 마케팅 플랫폼 | 허들러스',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://blog.hurdlers.kr/logo.png',
+      url: 'https://blog.hurdlers.kr/metalogo.png',
     },
   },
   mainEntity: {
