@@ -75,8 +75,7 @@ export default function Header() {
       dropdown: true,
       items: [
         { name: '블로그', href: '/' },
-        { name: '데모 체험', href: 'https://demo.hurdlers.kr/' },
-        { name: '솔루션', href: '/' }
+        { name: '데모 체험', href: 'https://demo.hurdlers.kr/' }
       ]
     },
     { name: 'Portfolio', href: 'https://hurdlers.kr/resource/portfolios' },

@@ -50,27 +50,27 @@ export default function Footer() {
           </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="mb-8">
+          <div className="lg:col-span-1 lg:pr-8">
+            <div className="mb-6">
               <Link href="/" className="text-2xl font-bold text-gray-900">
                 <Image 
                   src="/logo.png" 
                   alt="Hurdlers" 
-                  width={120} 
-                  height={40}
-                  className="h-10 w-auto"
+                  width={80} 
+                  height={26}
+                  className="h-6 w-auto"
                 />
               </Link>
             </div>
-            <div className="text-sm text-gray-600 space-y-2">
+            <div className="text-xs text-gray-600 space-y-1">
               <p>사업자명 : (주) 허들러스</p>
               <p>사업자 등록번호 : 660-46-00794</p>
               <p>대표자명 : 유성민</p>
               <p>문의 메일 : team@hurdlers.kr</p>
             </div>
-            <div className="mt-8 text-sm text-gray-600">
+            <div className="mt-6 text-xs text-gray-600">
               <p>AI는 반복을 대신하고, 사람은 통찰과 창의에</p>
               <p>집중할 수 있어야 한다고 믿습니다.</p>
               <p className="mt-4">그것이 우리가 기술을 다루는 방식이며, 사람이</p>
@@ -79,9 +79,9 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Services</h3>
-            <ul className="space-y-4 text-sm text-gray-600">
+          <div className="lg:ml-auto lg:text-left">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Services</h3>
+            <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link 
                   href="https://hurdlers.kr/service/ai/ax-consulting" 
@@ -142,9 +142,8 @@ export default function Footer() {
           </div>
 
           {/* Additional Services */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-6"></h3>
-            <ul className="space-y-4 text-sm text-gray-600 mt-6">
+          <div className="lg:ml-auto lg:text-left">
+            <ul className="space-y-3 text-sm text-gray-600 mt-6">
               <li>
                 <Link 
                   href="https://hurdlers.kr/service/data/data-pipeline-consulting" 
@@ -196,10 +195,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources & About */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Resources</h3>
-            <ul className="space-y-4 text-sm text-gray-600">
+          {/* Resources */}
+          <div className="lg:ml-auto lg:text-left">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Resources</h3>
+            <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link 
                   href="/" 
@@ -216,18 +215,13 @@ export default function Footer() {
                   데모 체험
                 </Link>
               </li>
-              <li>
-                <Link 
-                  href="/" 
-                  className="hover:text-gray-900 transition-colors"
-                >
-                  솔루션
-                </Link>
-              </li>
             </ul>
+          </div>
 
-            <h3 className="text-lg font-semibold text-gray-900 mb-6 mt-12">About</h3>
-            <ul className="space-y-4 text-sm text-gray-600">
+          {/* About */}
+          <div className="lg:ml-auto lg:text-left">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">About</h3>
+            <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <Link 
                   href="https://hurdlers.kr/about/company" 
@@ -265,8 +259,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-500">
+        <div className="mt-12 pt-6 border-t border-gray-200">
+          <p className="text-xs text-gray-500">
             Hurdlers © All rights reserved
           </p>
         </div>
