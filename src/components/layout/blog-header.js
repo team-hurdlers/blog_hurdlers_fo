@@ -11,13 +11,13 @@ export default function BlogHeader() {
   const pathname = usePathname()
 
   const navItems = [
-    { name: 'Home', href: 'https://v4-dev-hurdlers.framer.website/' },
+    { name: 'Home', href: 'https://hurdlers.kr/' },
     {
       name: 'Services',
       dropdown: true,
       items: [
-        { name: 'AX Consulting', href: 'https://v4-dev-hurdlers.framer.website/ai/ax-consulting' },
-        { name: 'AI Data Analysis', href: 'https://v4-dev-hurdlers.framer.website/ai/ai-data-analysis' }
+        { name: 'AX Consulting', href: 'https://hurdlers.kr/ai/ax-consulting' },
+        { name: 'AI Data Analysis', href: 'https://hurdlers.kr/ai/ai-data-analysis' }
       ]
     },
     {
@@ -29,14 +29,14 @@ export default function BlogHeader() {
         { name: '솔루션', href: '/' }
       ]
     },
-    { name: 'Portfolio', href: 'https://v4-dev-hurdlers.framer.website/portfolio' },
+    { name: 'Portfolio', href: 'https://hurdlers.kr/portfolio' },
     {
       name: 'About',
       dropdown: true,
       items: [
-        { name: '회사소개', href: 'https://v4-dev-hurdlers.framer.website/company' },
-        { name: '채용', href: 'https://v4-dev-hurdlers.framer.website/recruit' },
-        { name: '문의하기', href: 'https://v4-dev-hurdlers.framer.website/contact' }
+        { name: '회사소개', href: 'https://hurdlers.kr/company' },
+        { name: '채용', href: 'https://hurdlers.kr/recruit' },
+        { name: '문의하기', href: 'https://hurdlers.kr/contact' }
       ]
     }
   ]
@@ -118,7 +118,7 @@ export default function BlogHeader() {
           <div className="flex items-center space-x-3">
             {/* Contact Us Button */}
             <Link
-              href="https://v4-dev-hurdlers.framer.website/contact"
+              href="https://hurdlers.kr/contact"
               className="hidden sm:flex items-center px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
             >
               Contact Us
@@ -207,7 +207,7 @@ export default function BlogHeader() {
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                 <Link
-                  href="https://v4-dev-hurdlers.framer.website/contact"
+                  href="https://hurdlers.kr/contact"
                   className="px-4 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >

@@ -23,7 +23,7 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: 'https://v4-dev-hurdlers.framer.website/' },
+    { name: 'Home', href: 'https://hurdlers.kr/' },
     {
       name: 'Services',
       dropdown: true,
@@ -32,40 +32,40 @@ export default function Header() {
           name: 'AI Transformation',
           isCategory: true,
           items: [
-            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/ai' },
-            { name: 'AX 컨설팅', href: 'https://v4-dev-hurdlers.framer.website/service/ai/ax-consulting', hot: true },
-            { name: 'AI 데이터 분석', href: 'https://v4-dev-hurdlers.framer.website/service/ai/ai-data-analysis', hot: true },
-            { name: 'AI 자동화 구축', href: 'https://v4-dev-hurdlers.framer.website/service/ai/ai-automation', hot: true },
-            { name: 'AI 생성형 컨텐츠', href: 'https://v4-dev-hurdlers.framer.website/service/ai/ai-contents', hot: true }
+            { name: '전체 보기', href: 'https://hurdlers.kr/service/ai' },
+            { name: 'AX 컨설팅', href: 'https://hurdlers.kr/service/ai/ax-consulting', hot: true },
+            { name: 'AI 데이터 분석', href: 'https://hurdlers.kr/service/ai/ai-data-analysis', hot: true },
+            { name: 'AI 자동화 구축', href: 'https://hurdlers.kr/service/ai/ai-automation', hot: true },
+            { name: 'AI 생성형 컨텐츠', href: 'https://hurdlers.kr/service/ai/ai-contents', hot: true }
           ]
         },
         {
           name: 'Data',
           isCategory: true,
           items: [
-            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/data' },
-            { name: 'GA4 구축', href: 'https://v4-dev-hurdlers.framer.website/service/data/ga4-consulting', hot: true },
-            { name: '통합 대시보드 구축', href: 'https://v4-dev-hurdlers.framer.website/service/data/integrated-dashboard' },
-            { name: '마테크 유지보수', href: 'https://v4-dev-hurdlers.framer.website/service/data/martech-maintenance' },
-            { name: '데이터 파이프라인 구축', href: 'https://v4-dev-hurdlers.framer.website/service/data/data-pipeline-consulting' }
+            { name: '전체 보기', href: 'https://hurdlers.kr/service/data' },
+            { name: 'GA4 구축', href: 'https://hurdlers.kr/service/data/ga4-consulting', hot: true },
+            { name: '통합 대시보드 구축', href: 'https://hurdlers.kr/service/data/integrated-dashboard' },
+            { name: '마테크 유지보수', href: 'https://hurdlers.kr/service/data/martech-maintenance' },
+            { name: '데이터 파이프라인 구축', href: 'https://hurdlers.kr/service/data/data-pipeline-consulting' }
           ]
         },
         {
           name: 'Marketing',
           isCategory: true,
           items: [
-            { name: '전체 보기', href: 'https://v4-dev-hurdlers.framer.website/service/marketing' },
-            { name: '마테크 온보딩', href: 'https://v4-dev-hurdlers.framer.website/service/marketing/martech-onboarding' },
-            { name: '그로스 마케팅', href: 'https://v4-dev-hurdlers.framer.website/service/marketing/growth-marketing' },
-            { name: '검색 광고 자동화', href: 'https://v4-dev-hurdlers.framer.website/service/marketing/search-ad' },
-            { name: 'SEO/AEO', href: 'https://v4-dev-hurdlers.framer.website/service/marketing/seo-aeo' }
+            { name: '전체 보기', href: 'https://hurdlers.kr/service/marketing' },
+            { name: '마테크 온보딩', href: 'https://hurdlers.kr/service/marketing/martech-onboarding' },
+            { name: '그로스 마케팅', href: 'https://hurdlers.kr/service/marketing/growth-marketing' },
+            { name: '검색 광고 자동화', href: 'https://hurdlers.kr/service/marketing/search-ad' },
+            { name: 'SEO/AEO', href: 'https://hurdlers.kr/service/marketing/seo-aeo' }
           ]
         },
         {
           name: 'Develop',
           isCategory: true,
           items: [
-            { name: 'Web/App', href: 'https://v4-dev-hurdlers.framer.website/develop/web-app' }
+            { name: 'Web/App', href: 'https://hurdlers.kr/develop/web-app' }
           ]
         }
       ]
@@ -79,14 +79,14 @@ export default function Header() {
         { name: '솔루션', href: '/' }
       ]
     },
-    { name: 'Portfolio', href: 'https://v4-dev-hurdlers.framer.website/resource/portfolios' },
+    { name: 'Portfolio', href: 'https://hurdlers.kr/resource/portfolios' },
     {
       name: 'About',
       dropdown: true,
       items: [
-        { name: '회사소개', href: 'https://v4-dev-hurdlers.framer.website/about/company' },
-        { name: '채용', href: 'https://v4-dev-hurdlers.framer.website/about/recruit' },
-        { name: '문의하기', href: 'https://v4-dev-hurdlers.framer.website/about/contact' }
+        { name: '회사소개', href: 'https://hurdlers.kr/about/company' },
+        { name: '채용', href: 'https://hurdlers.kr/about/recruit' },
+        { name: '문의하기', href: 'https://hurdlers.kr/about/contact' }
       ]
     }
   ]
@@ -255,7 +255,7 @@ export default function Header() {
 
               {/* Contact Us Button */}
               <Link
-                href="https://v4-dev-hurdlers.framer.website/contact"
+                href="https://hurdlers.kr/contact"
                 className="hidden sm:flex items-center px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
               >
                 Contact Us
@@ -375,7 +375,7 @@ export default function Header() {
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200/30">
                   <Link
-                    href="https://v4-dev-hurdlers.framer.website/contact"
+                    href="https://hurdlers.kr/contact"
                     className="px-4 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >

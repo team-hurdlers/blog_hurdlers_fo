@@ -284,7 +284,7 @@ export default function BlogDetailPage({ detailParams }) {
                     <ShareButtons title={blog.title} />
                     <div className="mt-4">
                       <Link
-                        href="https://v4-dev-hurdlers.framer.website/contact"
+                        href="https://hurdlers.kr/contact"
                         className="flex items-center justify-center px-[14px] py-[10px] bg-black hover:bg-gray-900 text-white text-sm rounded cursor-pointer w-full"
                       >
                         <span>Contact Us</span>
@@ -437,7 +437,7 @@ export default function BlogDetailPage({ detailParams }) {
 
                   <div className="mt-8">
                     <Link
-                      href="https://v4-dev-hurdlers.framer.website/contact"
+                      href="https://hurdlers.kr/contact"
                       className="flex items-center justify-center px-[14px] py-[10px] bg-black hover:bg-gray-900 text-white text-sm rounded cursor-pointer"
                     >
                       <span>Contact Us</span>
